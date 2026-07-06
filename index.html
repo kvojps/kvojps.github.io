@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kvojps · Apps</title>
+    <meta
+      name="description"
+      content="Aplicativos desktop feitos por kvojps: Meu Negócio (gestão de vendas e estoque) e Meu Dinheiro (controle financeiro pessoal)."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="hero">
+        <p class="hero-kicker">kvojps</p>
+        <h1>Apps para organizar o dia a dia</h1>
+        <p>
+          Gosto de desenvolver aplicativos que ajudam nas tarefas do dia a dia
+          &mdash; nada muito grande, só ferramentas simples e diretas para
+          resolver problemas comuns. Abaixo estão dois apps para Windows que fiz
+          com esse objetivo.
+        </p>
+        <div class="hero-links">
+          <a
+            class="text-link"
+            href="https://github.com/kvojps"
+            target="_blank"
+            rel="noopener"
+            >GitHub →</a
+          >
+        </div>
+      </header>
+
+      <main>
+        <p class="section-title">Apps</p>
+        <section class="apps">
+          <article class="app-card">
+            <img class="app-icon" src="assets/icon-negocio.svg" alt="" />
+            <div class="app-header">
+              <h2>Meu Negócio</h2>
+              <span class="badge">v1.0.0-beta</span>
+            </div>
+            <p class="app-tagline">Gestão de produtos, pedidos e vendas.</p>
+            <p class="app-desc">
+              App desktop para acompanhar o catálogo de produtos, controlar
+              estoque e gerenciar pedidos do início ao fim, com uma visão geral
+              de receita e lucro. Tudo salvo localmente, sem depender de
+              internet.
+            </p>
+            <ul class="app-features">
+              <li>Catálogo de produtos com controle de estoque</li>
+              <li>Pedidos com fluxo de status por cliente</li>
+              <li>Dashboard com receita, lucro e produtos mais vendidos</li>
+              <li>Backup e restauração dos dados</li>
+            </ul>
+            <div class="app-footer">
+              <a
+                class="btn-download"
+                href="https://github.com/kvojps/meu-negocio-app/releases/download/v1.0.0-beta/Meu.Negocio.Setup.1.0.0.exe"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3v12" />
+                  <path d="M7 10l5 5 5-5" />
+                  <path d="M5 21h14" />
+                </svg>
+                Baixar para Windows
+              </a>
+              <span class="app-meta">Instalador .exe</span>
+            </div>
+          </article>
+
+          <article class="app-card">
+            <img class="app-icon" src="assets/icon-dinheiro.svg" alt="" />
+            <div class="app-header">
+              <h2>Meu Dinheiro</h2>
+              <span class="badge">v1.0.0-beta</span>
+            </div>
+            <p class="app-tagline">Controle financeiro pessoal.</p>
+            <p class="app-desc">
+              Aplicativo desktop para controle de finanças pessoais. Organize
+              contas a pagar e a receber, gerencie lançamentos recorrentes,
+              anexe comprovantes, acompanhe gráficos e tenha uma visão clara do
+              seu patrimônio e gastos. Todos os dados ficam armazenados apenas
+              no seu computador.
+            </p>
+            <ul class="app-features">
+              <li>Gerenciamento de patrimônio</li>
+              <li>Contas padrão recorrentes para preencher novos meses</li>
+              <li>Contas a pagar/receber com vencimento e status</li>
+              <li>Histórico com gráficos</li>
+              <li>Backup e restauração dos dados</li>
+            </ul>
+            <div class="app-footer">
+              <a
+                class="btn-download"
+                href="https://github.com/kvojps/meu-dinheiro-app/releases/download/v1.0.0-beta/Meu.Dinheiro.Setup.1.0.0.exe"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3v12" />
+                  <path d="M7 10l5 5 5-5" />
+                  <path d="M5 21h14" />
+                </svg>
+                Baixar para Windows
+              </a>
+              <span class="app-meta">Instalador .exe</span>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <footer>
+        <span>&copy; <span id="year"></span> kvojps</span>
+        <span
+          >Apps em fase beta para Windows. Código-fonte no
+          <a href="https://github.com/kvojps" target="_blank" rel="noopener"
+            >GitHub</a
+          >.</span
+        >
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

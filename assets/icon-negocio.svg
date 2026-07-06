@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="Ícone do app Meu Negócio">
+  <defs>
+    <linearGradient id="gradNegocio" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B8AE0" />
+      <stop offset="100%" stop-color="#1F5FAE" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="96" height="96" rx="22" fill="url(#gradNegocio)" />
+  <text
+    x="48"
+    y="48"
+    fill="#FFFFFF"
+    font-size="52"
+    font-weight="700"
+    font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif"
+    text-anchor="middle"
+    dominant-baseline="central"
+  >N</text>
+</svg>
