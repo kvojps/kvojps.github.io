@@ -73,6 +73,13 @@ body {
   margin: 0 0 14px;
 }
 
+.hero-logo {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+}
+
 .hero h1 {
   font-size: clamp(28px, 4vw, 38px);
   line-height: 1.25;
