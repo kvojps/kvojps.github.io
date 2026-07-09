@@ -6,7 +6,7 @@
     <title>kvojps · Apps</title>
     <meta
       name="description"
-      content="Aplicativos desktop feitos por kvojps: Meu Negócio (gestão de vendas e estoque) e Meu Dinheiro (controle financeiro pessoal)."
+      content="Aplicativos desktop feitos por kvojps: Meu Negócio (gestão de vendas e estoque), Meu Dinheiro (controle financeiro pessoal), Git Dlog (status de repositórios git) e Meu Aprendizado (árvores de tópicos de estudo)."
     />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="stylesheet" href="style.css" />
@@ -19,7 +19,7 @@
         <p>
           Gosto de desenvolver aplicativos que ajudam nas tarefas do dia a dia
           &mdash; nada muito grande, só ferramentas simples e diretas para
-          resolver problemas comuns. Abaixo estão dois apps para Windows que fiz
+          resolver problemas comuns. Abaixo estão os apps para Windows que fiz
           com esse objetivo.
         </p>
         <div class="hero-links">
@@ -37,28 +37,30 @@
         <p class="section-title">Apps</p>
         <section class="apps">
           <article class="app-card">
-            <img class="app-icon" src="assets/icon-negocio.svg" alt="" />
+            <img class="app-icon" src="assets/icon-dlog.png" alt="" />
             <div class="app-header">
-              <h2>Meu Negócio</h2>
-              <span class="badge">v1.0.0-beta</span>
+              <h2>Git Dlog</h2>
+              <span class="badge">v1.0.1-beta</span>
             </div>
-            <p class="app-tagline">Gestão de produtos, pedidos e vendas.</p>
+            <p class="app-tagline">
+              Status de HEAD e branches de vários repositórios git.
+            </p>
             <p class="app-desc">
-              App desktop para acompanhar o catálogo de produtos, controlar
-              estoque e gerenciar pedidos do início ao fim, com uma visão geral
-              de receita e lucro. Tudo salvo localmente, sem depender de
-              internet.
+              App desktop que varre recursivamente os diretórios que você
+              cadastrar, localiza múltiplos repositórios git e mostra, para cada
+              um, o commit HEAD e as branches agrupadas por commit, mais recente
+              primeiro &mdash; útil para acompanhar vários projetos de uma vez
+              sem entrar em cada pasta.
             </p>
             <ul class="app-features">
-              <li>Catálogo de produtos com controle de estoque</li>
-              <li>Pedidos com fluxo de status por cliente</li>
-              <li>Dashboard com receita, lucro e produtos mais vendidos</li>
-              <li>Backup e restauração dos dados</li>
+              <li>Varredura recursiva por múltiplos repositórios git</li>
+              <li>HEAD e branches agrupadas por commit</li>
+              <li>Diretórios de busca salvos entre sessões</li>
             </ul>
             <div class="app-footer">
               <a
                 class="btn-download"
-                href="https://github.com/kvojps/meu-negocio-app/releases/download/v1.0.0-beta/Meu.Negocio.Setup.1.0.0.exe"
+                href="https://github.com/kvojps/git-dlog/releases/download/v1.0.1-beta/Git.Dlog.Setup.1.0.1.exe"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -79,10 +81,53 @@
           </article>
 
           <article class="app-card">
-            <img class="app-icon" src="assets/icon-dinheiro.svg" alt="" />
+            <img class="app-icon" src="assets/icon-aprendizado.png" alt="" />
+            <div class="app-header">
+              <h2>Meu Aprendizado</h2>
+              <span class="badge">v1.0.1-beta</span>
+            </div>
+            <p class="app-tagline">
+              Organize aprendizados em árvores de tópicos.
+            </p>
+            <p class="app-desc">
+              App desktop para organizar aprendizados em árvores de tópicos,
+              com status, anotações e um grafo arrastável estilo mapa mental.
+              Uso individual e local, sem autenticação e sem servidor.
+            </p>
+            <ul class="app-features">
+              <li>Árvore de tópicos como grafo arrastável</li>
+              <li>Status por tópico</li>
+              <li>Anotações e subtópicos</li>
+              <li>Backup e restauração dos dados</li>
+            </ul>
+            <div class="app-footer">
+              <a
+                class="btn-download"
+                href="https://github.com/kvojps/meu-aprendizado-app/releases/download/v1.0.1-beta/Meu.Aprendizado.Setup.1.0.1.exe"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3v12" />
+                  <path d="M7 10l5 5 5-5" />
+                  <path d="M5 21h14" />
+                </svg>
+                Baixar para Windows
+              </a>
+              <span class="app-meta">Instalador .exe</span>
+            </div>
+          </article>
+
+          <article class="app-card">
+            <img class="app-icon" src="assets/icon-dinheiro.png" alt="" />
             <div class="app-header">
               <h2>Meu Dinheiro</h2>
-              <span class="badge">v1.0.0-beta</span>
+              <span class="badge">v1.0.12-beta</span>
             </div>
             <p class="app-tagline">Controle financeiro pessoal.</p>
             <p class="app-desc">
@@ -102,7 +147,7 @@
             <div class="app-footer">
               <a
                 class="btn-download"
-                href="https://github.com/kvojps/meu-dinheiro-app/releases/download/v1.0.0-beta/Meu.Dinheiro.Setup.1.0.0.exe"
+                href="https://github.com/kvojps/meu-dinheiro-app/releases/download/v1.0.12-beta/Meu.Dinheiro.Setup.1.0.12.exe"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -123,28 +168,28 @@
           </article>
 
           <article class="app-card">
-            <img class="app-icon" src="assets/icon-dlog.svg" alt="" />
+            <img class="app-icon" src="assets/icon-negocio.png" alt="" />
             <div class="app-header">
-              <h2>Git Dlog</h2>
-              <span class="badge">v1.0.0-beta</span>
+              <h2>Meu Negócio</h2>
+              <span class="badge">v1.0.8-beta</span>
             </div>
-            <p class="app-tagline">Status de HEAD e branches de vários repositórios git.</p>
+            <p class="app-tagline">Gestão de produtos, pedidos e vendas.</p>
             <p class="app-desc">
-              App desktop que varre recursivamente os diretórios que você
-              cadastrar, localiza múltiplos repositórios git e mostra, para
-              cada um, o commit HEAD e as branches agrupadas por commit, mais
-              recente primeiro &mdash; útil para acompanhar vários projetos de
-              uma vez sem entrar em cada pasta.
+              App desktop para acompanhar o catálogo de produtos, controlar
+              estoque e gerenciar pedidos do início ao fim, com uma visão geral
+              de receita e lucro. Tudo salvo localmente, sem depender de
+              internet.
             </p>
             <ul class="app-features">
-              <li>Varredura recursiva por múltiplos repositórios git</li>
-              <li>HEAD e branches agrupadas por commit, mais recente primeiro</li>
-              <li>Diretórios de busca salvos entre sessões</li>
+              <li>Catálogo de produtos com controle de estoque</li>
+              <li>Pedidos com fluxo de status por cliente</li>
+              <li>Dashboard com receita, lucro e produtos mais vendidos</li>
+              <li>Backup e restauração dos dados</li>
             </ul>
             <div class="app-footer">
               <a
                 class="btn-download"
-                href="https://github.com/kvojps/git-dlog/releases/download/v1.0.0-beta/Git.Dlog.Setup.1.0.0.exe"
+                href="https://github.com/kvojps/meu-negocio-app/releases/download/v.1.0.8-beta/Meu.Negocio.Setup.1.0.8.exe"
               >
                 <svg
                   viewBox="0 0 24 24"
