@@ -38,29 +38,35 @@
 
       <main>
         <p class="section-title">Apps</p>
+
+        <div class="filter-bar" role="group" aria-label="Filtrar apps por categoria">
+          <button class="filter-btn active" type="button" data-filter="all">Todos</button>
+          <button class="filter-btn" type="button" data-filter="dev">Dev tools</button>
+          <button class="filter-btn" type="button" data-filter="produtividade">Produtividade</button>
+          <button class="filter-btn" type="button" data-filter="financas">Finanças</button>
+          <button class="filter-btn" type="button" data-filter="gestao">Gestão</button>
+        </div>
+
         <section class="apps">
-          <article class="app-card">
-            <img class="app-icon" src="assets/icon-dlog.png" alt="" />
-            <div class="app-header">
-              <h2>Git Dlog</h2>
+          <article class="app-card" data-category="dev">
+            <div class="app-top">
+              <img class="app-icon" src="assets/icon-dlog.png" alt="" />
+              <div class="app-heading">
+                <h2>Git Dlog</h2>
+                <div class="app-chips">
+                  <span class="chip chip-category">Dev tools</span>
+                  <span class="chip chip-free">Grátis</span>
+                </div>
+              </div>
               <span class="badge">v1.0.1-beta</span>
             </div>
             <p class="app-tagline">
               Status de HEAD e branches de vários repositórios git.
             </p>
-            <p class="app-desc">
-              App desktop que varre recursivamente os diretórios que você
-              cadastrar, localiza múltiplos repositórios git e mostra, para cada
-              um, o commit HEAD e as branches agrupadas por commit, mais recente
-              primeiro &mdash; útil para acompanhar vários projetos de uma vez
-              sem entrar em cada pasta.
-            </p>
-            <ul class="app-features">
-              <li>Varredura recursiva por múltiplos repositórios git</li>
-              <li>HEAD e branches agrupadas por commit</li>
-              <li>Diretórios de busca salvos entre sessões</li>
-            </ul>
-            <div class="app-footer">
+            <div class="app-actions">
+              <button class="btn-details" type="button" data-open="dlog">
+                Detalhes
+              </button>
               <a
                 class="btn-download"
                 href="https://github.com/kvojps/git-dlog/releases/download/v1.0.1-beta/Git.Dlog.Setup.1.0.1.exe"
@@ -77,33 +83,30 @@
                   <path d="M7 10l5 5 5-5" />
                   <path d="M5 21h14" />
                 </svg>
-                Baixar para Windows
+                Baixar
               </a>
-              <span class="app-meta">Instalador .exe</span>
             </div>
           </article>
 
-          <article class="app-card">
-            <img class="app-icon" src="assets/icon-aprendizado.png" alt="" />
-            <div class="app-header">
-              <h2>Meu Aprendizado</h2>
+          <article class="app-card" data-category="produtividade">
+            <div class="app-top">
+              <img class="app-icon" src="assets/icon-aprendizado.png" alt="" />
+              <div class="app-heading">
+                <h2>Meu Aprendizado</h2>
+                <div class="app-chips">
+                  <span class="chip chip-category">Produtividade</span>
+                  <span class="chip chip-free">Grátis</span>
+                </div>
+              </div>
               <span class="badge">v1.0.1-beta</span>
             </div>
             <p class="app-tagline">
               Organize aprendizados em árvores de tópicos.
             </p>
-            <p class="app-desc">
-              App desktop para organizar aprendizados em árvores de tópicos,
-              com status, anotações e um grafo arrastável estilo mapa mental.
-              Uso individual e local, sem autenticação e sem servidor.
-            </p>
-            <ul class="app-features">
-              <li>Árvore de tópicos como grafo arrastável</li>
-              <li>Status por tópico</li>
-              <li>Anotações e subtópicos</li>
-              <li>Backup e restauração dos dados</li>
-            </ul>
-            <div class="app-footer">
+            <div class="app-actions">
+              <button class="btn-details" type="button" data-open="aprendizado">
+                Detalhes
+              </button>
               <a
                 class="btn-download"
                 href="https://github.com/kvojps/meu-aprendizado-app/releases/download/v1.0.1-beta/Meu.Aprendizado.Setup.1.0.1.exe"
@@ -120,34 +123,28 @@
                   <path d="M7 10l5 5 5-5" />
                   <path d="M5 21h14" />
                 </svg>
-                Baixar para Windows
+                Baixar
               </a>
-              <span class="app-meta">Instalador .exe</span>
             </div>
           </article>
 
-          <article class="app-card">
-            <img class="app-icon" src="assets/icon-dinheiro.png" alt="" />
-            <div class="app-header">
-              <h2>Meu Dinheiro</h2>
+          <article class="app-card" data-category="financas">
+            <div class="app-top">
+              <img class="app-icon" src="assets/icon-dinheiro.png" alt="" />
+              <div class="app-heading">
+                <h2>Meu Dinheiro</h2>
+                <div class="app-chips">
+                  <span class="chip chip-category">Finanças</span>
+                  <span class="chip chip-free">Grátis</span>
+                </div>
+              </div>
               <span class="badge">v1.2.0-beta</span>
             </div>
             <p class="app-tagline">Controle financeiro pessoal.</p>
-            <p class="app-desc">
-              Aplicativo desktop para controle de finanças pessoais. Organize
-              contas a pagar e a receber, gerencie lançamentos recorrentes,
-              anexe comprovantes, acompanhe gráficos e tenha uma visão clara do
-              seu patrimônio e gastos. Todos os dados ficam armazenados apenas
-              no seu computador.
-            </p>
-            <ul class="app-features">
-              <li>Gerenciamento de patrimônio</li>
-              <li>Contas padrão recorrentes para preencher novos meses</li>
-              <li>Contas a pagar/receber com vencimento e status</li>
-              <li>Histórico com gráficos</li>
-              <li>Backup e restauração dos dados</li>
-            </ul>
-            <div class="app-footer">
+            <div class="app-actions">
+              <button class="btn-details" type="button" data-open="dinheiro">
+                Detalhes
+              </button>
               <a
                 class="btn-download"
                 href="https://github.com/kvojps/meu-dinheiro-app/releases/download/v1.2.0-beta/Meu.Dinheiro.Setup.1.2.0.exe"
@@ -164,32 +161,28 @@
                   <path d="M7 10l5 5 5-5" />
                   <path d="M5 21h14" />
                 </svg>
-                Baixar para Windows
+                Baixar
               </a>
-              <span class="app-meta">Instalador .exe</span>
             </div>
           </article>
 
-          <article class="app-card">
-            <img class="app-icon" src="assets/icon-negocio.png" alt="" />
-            <div class="app-header">
-              <h2>Meu Negócio</h2>
+          <article class="app-card" data-category="gestao">
+            <div class="app-top">
+              <img class="app-icon" src="assets/icon-negocio.png" alt="" />
+              <div class="app-heading">
+                <h2>Meu Negócio</h2>
+                <div class="app-chips">
+                  <span class="chip chip-category">Gestão</span>
+                  <span class="chip chip-free">Grátis</span>
+                </div>
+              </div>
               <span class="badge">v1.0.8-beta</span>
             </div>
             <p class="app-tagline">Gestão de produtos, pedidos e vendas.</p>
-            <p class="app-desc">
-              App desktop para acompanhar o catálogo de produtos, controlar
-              estoque e gerenciar pedidos do início ao fim, com uma visão geral
-              de receita e lucro. Tudo salvo localmente, sem depender de
-              internet.
-            </p>
-            <ul class="app-features">
-              <li>Catálogo de produtos com controle de estoque</li>
-              <li>Pedidos com fluxo de status por cliente</li>
-              <li>Dashboard com receita, lucro e produtos mais vendidos</li>
-              <li>Backup e restauração dos dados</li>
-            </ul>
-            <div class="app-footer">
+            <div class="app-actions">
+              <button class="btn-details" type="button" data-open="negocio">
+                Detalhes
+              </button>
               <a
                 class="btn-download"
                 href="https://github.com/kvojps/meu-negocio-app/releases/download/v.1.0.8-beta/Meu.Negocio.Setup.1.0.8.exe"
@@ -206,9 +199,8 @@
                   <path d="M7 10l5 5 5-5" />
                   <path d="M5 21h14" />
                 </svg>
-                Baixar para Windows
+                Baixar
               </a>
-              <span class="app-meta">Instalador .exe</span>
             </div>
           </article>
         </section>
@@ -225,8 +217,234 @@
       </footer>
     </div>
 
+    <!-- Detail modal -->
+    <div class="modal-overlay" id="modal-overlay" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-label="Detalhes do app">
+        <button class="modal-close" id="modal-close" type="button" aria-label="Fechar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18" /><path d="M6 6l12 12" />
+          </svg>
+        </button>
+        <div class="modal-body" id="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Detail templates -->
+    <template id="tpl-dlog">
+      <div class="modal-top">
+        <img class="modal-icon" src="assets/icon-dlog.png" alt="" />
+        <div>
+          <h3>Git Dlog</h3>
+          <div class="app-chips">
+            <span class="chip chip-category">Dev tools</span>
+            <span class="chip chip-free">Grátis</span>
+            <span class="badge">v1.0.1-beta</span>
+          </div>
+        </div>
+      </div>
+      <div class="app-shot-wrap">
+        <img class="app-shot" src="assets/screenshot-dlog.png" alt="Captura de tela do Git Dlog" loading="lazy" onerror="this.style.display='none'" />
+      </div>
+      <p class="modal-desc">
+        App desktop que varre recursivamente os diretórios que você cadastrar,
+        localiza múltiplos repositórios git e mostra, para cada um, o commit
+        HEAD e as branches agrupadas por commit, mais recente primeiro
+        &mdash; útil para acompanhar vários projetos de uma vez sem entrar em
+        cada pasta.
+      </p>
+      <ul class="modal-features">
+        <li>Varredura recursiva por múltiplos repositórios git</li>
+        <li>HEAD e branches agrupadas por commit</li>
+        <li>Diretórios de busca salvos entre sessões</li>
+      </ul>
+      <div class="modal-footer">
+        <a
+          class="btn-download"
+          href="https://github.com/kvojps/git-dlog/releases/download/v1.0.1-beta/Git.Dlog.Setup.1.0.1.exe"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12" /><path d="M7 10l5 5 5-5" /><path d="M5 21h14" />
+          </svg>
+          Baixar para Windows
+        </a>
+        <span class="app-meta">Windows 10 ou superior · Instalador .exe</span>
+      </div>
+    </template>
+
+    <template id="tpl-aprendizado">
+      <div class="modal-top">
+        <img class="modal-icon" src="assets/icon-aprendizado.png" alt="" />
+        <div>
+          <h3>Meu Aprendizado</h3>
+          <div class="app-chips">
+            <span class="chip chip-category">Produtividade</span>
+            <span class="chip chip-free">Grátis</span>
+            <span class="badge">v1.0.1-beta</span>
+          </div>
+        </div>
+      </div>
+      <div class="app-shot-wrap">
+        <img class="app-shot" src="assets/screenshot-aprendizado.png" alt="Captura de tela do Meu Aprendizado" loading="lazy" onerror="this.style.display='none'" />
+      </div>
+      <p class="modal-desc">
+        App desktop para organizar aprendizados em árvores de tópicos, com
+        status, anotações e um grafo arrastável estilo mapa mental. Uso
+        individual e local, sem autenticação e sem servidor.
+      </p>
+      <ul class="modal-features">
+        <li>Árvore de tópicos como grafo arrastável</li>
+        <li>Status por tópico</li>
+        <li>Anotações e subtópicos</li>
+        <li>Backup e restauração dos dados</li>
+      </ul>
+      <div class="modal-footer">
+        <a
+          class="btn-download"
+          href="https://github.com/kvojps/meu-aprendizado-app/releases/download/v1.0.1-beta/Meu.Aprendizado.Setup.1.0.1.exe"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12" /><path d="M7 10l5 5 5-5" /><path d="M5 21h14" />
+          </svg>
+          Baixar para Windows
+        </a>
+        <span class="app-meta">Windows 10 ou superior · Instalador .exe</span>
+      </div>
+    </template>
+
+    <template id="tpl-dinheiro">
+      <div class="modal-top">
+        <img class="modal-icon" src="assets/icon-dinheiro.png" alt="" />
+        <div>
+          <h3>Meu Dinheiro</h3>
+          <div class="app-chips">
+            <span class="chip chip-category">Finanças</span>
+            <span class="chip chip-free">Grátis</span>
+            <span class="badge">v1.2.0-beta</span>
+          </div>
+        </div>
+      </div>
+      <div class="app-shot-wrap">
+        <img class="app-shot" src="assets/screenshot-dinheiro.png" alt="Captura de tela do Meu Dinheiro" loading="lazy" onerror="this.style.display='none'" />
+      </div>
+      <p class="modal-desc">
+        Aplicativo desktop para controle de finanças pessoais. Organize contas
+        a pagar e a receber, gerencie lançamentos recorrentes, anexe
+        comprovantes, acompanhe gráficos e tenha uma visão clara do seu
+        patrimônio e gastos. Todos os dados ficam armazenados apenas no seu
+        computador.
+      </p>
+      <ul class="modal-features">
+        <li>Gerenciamento de patrimônio</li>
+        <li>Contas padrão recorrentes para preencher novos meses</li>
+        <li>Contas a pagar/receber com vencimento e status</li>
+        <li>Histórico com gráficos</li>
+        <li>Backup e restauração dos dados</li>
+      </ul>
+      <div class="modal-footer">
+        <a
+          class="btn-download"
+          href="https://github.com/kvojps/meu-dinheiro-app/releases/download/v1.2.0-beta/Meu.Dinheiro.Setup.1.2.0.exe"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12" /><path d="M7 10l5 5 5-5" /><path d="M5 21h14" />
+          </svg>
+          Baixar para Windows
+        </a>
+        <span class="app-meta">Windows 10 ou superior · Instalador .exe</span>
+      </div>
+    </template>
+
+    <template id="tpl-negocio">
+      <div class="modal-top">
+        <img class="modal-icon" src="assets/icon-negocio.png" alt="" />
+        <div>
+          <h3>Meu Negócio</h3>
+          <div class="app-chips">
+            <span class="chip chip-category">Gestão</span>
+            <span class="chip chip-free">Grátis</span>
+            <span class="badge">v1.0.8-beta</span>
+          </div>
+        </div>
+      </div>
+      <div class="app-shot-wrap">
+        <img class="app-shot" src="assets/screenshot-negocio.png" alt="Captura de tela do Meu Negócio" loading="lazy" onerror="this.style.display='none'" />
+      </div>
+      <p class="modal-desc">
+        App desktop para acompanhar o catálogo de produtos, controlar estoque
+        e gerenciar pedidos do início ao fim, com uma visão geral de receita e
+        lucro. Tudo salvo localmente, sem depender de internet.
+      </p>
+      <ul class="modal-features">
+        <li>Catálogo de produtos com controle de estoque</li>
+        <li>Pedidos com fluxo de status por cliente</li>
+        <li>Dashboard com receita, lucro e produtos mais vendidos</li>
+        <li>Backup e restauração dos dados</li>
+      </ul>
+      <div class="modal-footer">
+        <a
+          class="btn-download"
+          href="https://github.com/kvojps/meu-negocio-app/releases/download/v.1.0.8-beta/Meu.Negocio.Setup.1.0.8.exe"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12" /><path d="M7 10l5 5 5-5" /><path d="M5 21h14" />
+          </svg>
+          Baixar para Windows
+        </a>
+        <span class="app-meta">Windows 10 ou superior · Instalador .exe</span>
+      </div>
+    </template>
+
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".app-card");
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filter = btn.dataset.filter;
+          cards.forEach((card) => {
+            const match = filter === "all" || card.dataset.category === filter;
+            card.style.display = match ? "" : "none";
+          });
+        });
+      });
+
+      const overlay = document.getElementById("modal-overlay");
+      const body = document.getElementById("modal-body");
+      const closeBtn = document.getElementById("modal-close");
+      let lastTrigger = null;
+
+      function openModal(appId, trigger) {
+        const tpl = document.getElementById(`tpl-${appId}`);
+        if (!tpl) return;
+        body.innerHTML = "";
+        body.appendChild(tpl.content.cloneNode(true));
+        overlay.hidden = false;
+        document.body.classList.add("modal-open");
+        lastTrigger = trigger;
+        closeBtn.focus();
+      }
+
+      function closeModal() {
+        overlay.hidden = true;
+        body.innerHTML = "";
+        document.body.classList.remove("modal-open");
+        if (lastTrigger) lastTrigger.focus();
+      }
+
+      document.querySelectorAll("[data-open]").forEach((btn) => {
+        btn.addEventListener("click", () => openModal(btn.dataset.open, btn));
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !overlay.hidden) closeModal();
+      });
     </script>
   </body>
 </html>
