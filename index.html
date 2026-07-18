@@ -18,20 +18,36 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="hero" id="topo">
-      <div class="wrap hero-inner">
-        <nav class="hero-nav" aria-label="Navegação principal">
+    <header class="site-header" id="topo">
+      <div class="wrap site-header-inner">
+        <a class="brand" href="#topo">
+          <img class="hero-logo" src="assets/logo.png" alt="" />
+          kvojps
+        </a>
+
+        <nav class="hero-nav" id="hero-nav" aria-label="Navegação principal">
           <a href="#sobre">Sobre</a>
           <a href="#apps">Apps</a>
           <a href="#contato">Contato</a>
         </nav>
 
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="hero-nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="wrap hero-inner">
         <div class="hero-grid">
           <div class="hero-main">
-            <p class="hero-kicker">
-              <img class="hero-logo" src="assets/logo.png" alt="" />
-              kvojps
-            </p>
             <h1>Engenheiro de Software</h1>
             <p>
               Resolvo problemas de negócio com software &mdash; da concepção
@@ -74,7 +90,7 @@
           </dl>
         </div>
       </div>
-    </header>
+    </section>
 
     <div class="wrap">
       <main>
@@ -496,6 +512,37 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
+      const navToggle = document.querySelector(".nav-toggle");
+      const heroNav = document.getElementById("hero-nav");
+
+      function closeNav() {
+        heroNav.classList.remove("open");
+        navToggle.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Abrir menu");
+      }
+
+      navToggle.addEventListener("click", () => {
+        const isOpen = heroNav.classList.toggle("open");
+        navToggle.classList.toggle("open", isOpen);
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+        navToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+      });
+
+      heroNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeNav);
+      });
+
+      document.addEventListener("click", (e) => {
+        if (
+          heroNav.classList.contains("open") &&
+          !heroNav.contains(e.target) &&
+          !navToggle.contains(e.target)
+        ) {
+          closeNav();
+        }
+      });
+
       const filterButtons = document.querySelectorAll(".filter-btn");
       const cards = document.querySelectorAll(".app-card");
       filterButtons.forEach((btn) => {
@@ -542,6 +589,7 @@
         if (e.target === overlay) closeModal();
       });
       document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && heroNav.classList.contains("open")) closeNav();
         if (e.key === "Escape" && !overlay.hidden) closeModal();
       });
     </script>
