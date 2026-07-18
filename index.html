@@ -18,43 +18,65 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="wrap">
-      <header class="hero" id="topo">
+    <header class="hero" id="topo">
+      <div class="wrap hero-inner">
         <nav class="hero-nav" aria-label="Navegação principal">
           <a href="#sobre">Sobre</a>
           <a href="#apps">Apps</a>
           <a href="#contato">Contato</a>
         </nav>
-        <p class="hero-kicker">
-          <img class="hero-logo" src="assets/logo.png" alt="" />
-          kvojps
-        </p>
-        <h1>Engenheiro de Software</h1>
-        <p>
-          Resolvo problemas de negócio com software &mdash; da concepção à
-          implantação de soluções escaláveis e confiáveis.
-        </p>
-        <div class="hero-links">
-          <a class="btn-primary" href="mailto:josefjuniordev@gmail.com"
-            >Fale comigo</a
-          >
-          <a
-            class="text-link"
-            href="https://www.linkedin.com/in/jos%C3%A9-ferreira-43a8071a1/"
-            target="_blank"
-            rel="noopener"
-            >LinkedIn →</a
-          >
-          <a
-            class="text-link"
-            href="https://github.com/kvojps"
-            target="_blank"
-            rel="noopener"
-            >GitHub →</a
-          >
-        </div>
-      </header>
 
+        <div class="hero-grid">
+          <div class="hero-main">
+            <p class="hero-kicker">
+              <img class="hero-logo" src="assets/logo.png" alt="" />
+              kvojps
+            </p>
+            <h1>Engenheiro de Software</h1>
+            <p>
+              Resolvo problemas de negócio com software &mdash; da concepção
+              à implantação de soluções escaláveis e confiáveis.
+            </p>
+            <div class="hero-links">
+              <a class="btn-primary" href="mailto:josefjuniordev@gmail.com"
+                >Fale comigo</a
+              >
+              <a
+                class="text-link"
+                href="https://www.linkedin.com/in/jos%C3%A9-ferreira-43a8071a1/"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn →</a
+              >
+              <a
+                class="text-link"
+                href="https://github.com/kvojps"
+                target="_blank"
+                rel="noopener"
+                >GitHub →</a
+              >
+            </div>
+          </div>
+
+          <dl class="hero-stats">
+            <div class="stat">
+              <dt>4+</dt>
+              <dd>anos de experiência em produção</dd>
+            </div>
+            <div class="stat">
+              <dt>4</dt>
+              <dd>apps desktop publicados</dd>
+            </div>
+            <div class="stat">
+              <dt>UPE</dt>
+              <dd>graduação e mestrado em Eng. de Software</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
       <main>
         <section class="about" id="sobre">
           <p class="section-title">Sobre</p>
@@ -77,21 +99,21 @@
         </section>
 
         <section class="projects" id="apps">
-        <p class="section-title">Apps</p>
-        <p class="section-lead">
-          Apps que desenvolvi e disponibilizo gratuitamente para ajudar em
-          fluxos do dia a dia e de micro empreendimentos.
-        </p>
+          <p class="section-title">Apps</p>
+          <p class="section-lead">
+            Apps que desenvolvi e disponibilizo gratuitamente para ajudar em
+            fluxos do dia a dia e de micro empreendimentos.
+          </p>
 
-        <div class="filter-bar" role="group" aria-label="Filtrar apps por categoria">
-          <button class="filter-btn active" type="button" data-filter="all">Todos</button>
-          <button class="filter-btn" type="button" data-filter="dev">Dev tools</button>
-          <button class="filter-btn" type="button" data-filter="produtividade">Produtividade</button>
-          <button class="filter-btn" type="button" data-filter="financas">Finanças</button>
-          <button class="filter-btn" type="button" data-filter="gestao">Gestão</button>
-        </div>
+          <div class="filter-bar" role="group" aria-label="Filtrar apps por categoria">
+            <button class="filter-btn active" type="button" data-filter="all">Todos</button>
+            <button class="filter-btn" type="button" data-filter="dev">Dev tools</button>
+            <button class="filter-btn" type="button" data-filter="produtividade">Produtividade</button>
+            <button class="filter-btn" type="button" data-filter="financas">Finanças</button>
+            <button class="filter-btn" type="button" data-filter="gestao">Gestão</button>
+          </div>
 
-        <section class="apps">
+          <div class="apps-grid">
           <article class="app-card" data-category="dev">
             <div class="app-top">
               <img class="app-icon" src="assets/icon-dlog.png" alt="" />
@@ -247,7 +269,7 @@
               </a>
             </div>
           </article>
-        </section>
+          </div>
         </section>
 
         <section class="contact" id="contato">
