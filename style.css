@@ -411,14 +411,69 @@ main > section:first-child {
 }
 
 /* Filter bar */
-.filter-bar {
+.filter-carousel {
   display: flex;
+  align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
   margin: 0 0 24px;
 }
 
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-nav {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.filter-nav:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.filter-nav:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.filter-nav[hidden] {
+  display: none;
+}
+
+.filter-nav svg {
+  width: 16px;
+  height: 16px;
+}
+
 .filter-btn {
+  flex: none;
+  scroll-snap-align: start;
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text-muted);
@@ -965,6 +1020,7 @@ body.modal-open {
 .btn-download:active,
 .btn-details:active,
 .filter-btn:active,
+.filter-nav:active,
 .modal-close:active,
 .nav-toggle:active {
   transform: scale(0.96);
@@ -1009,22 +1065,7 @@ footer a {
     padding: 28px 22px;
   }
 
-  .filter-bar {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    margin-left: -24px;
-    margin-right: -24px;
-    padding: 2px 24px 6px;
-  }
-
-  .filter-bar::-webkit-scrollbar {
-    display: none;
-  }
-
   .filter-btn {
-    flex: none;
     padding: 9px 16px;
   }
 

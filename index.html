@@ -140,12 +140,20 @@
             empreendimentos.
           </p>
 
-          <div class="filter-bar" role="group" aria-label="Filtrar apps por categoria">
-            <button class="filter-btn active" type="button" data-filter="all">Todos</button>
-            <button class="filter-btn" type="button" data-filter="dev">Dev tools</button>
-            <button class="filter-btn" type="button" data-filter="produtividade">Produtividade</button>
-            <button class="filter-btn" type="button" data-filter="financas">Finanças</button>
-            <button class="filter-btn" type="button" data-filter="gestao">Gestão</button>
+          <div class="filter-carousel">
+            <button class="filter-nav filter-nav--prev" id="filter-prev" type="button" aria-label="Filtros anteriores" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <div class="filter-bar" id="filter-bar" role="group" aria-label="Filtrar apps por categoria">
+              <button class="filter-btn active" type="button" data-filter="all">Todos</button>
+              <button class="filter-btn" type="button" data-filter="dev">Dev tools</button>
+              <button class="filter-btn" type="button" data-filter="produtividade">Produtividade</button>
+              <button class="filter-btn" type="button" data-filter="financas">Finanças</button>
+              <button class="filter-btn" type="button" data-filter="gestao">Gestão</button>
+            </div>
+            <button class="filter-nav filter-nav--next" id="filter-next" type="button" aria-label="Próximos filtros" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
           </div>
 
           <div class="apps-grid">
@@ -643,6 +651,35 @@
           closeNav();
         }
       });
+
+      const filterBar = document.getElementById("filter-bar");
+      const filterPrev = document.getElementById("filter-prev");
+      const filterNext = document.getElementById("filter-next");
+
+      function updateFilterNav() {
+        const hasOverflow = filterBar.scrollWidth > filterBar.clientWidth + 1;
+        filterPrev.hidden = !hasOverflow;
+        filterNext.hidden = !hasOverflow;
+        if (!hasOverflow) return;
+        const maxScroll = filterBar.scrollWidth - filterBar.clientWidth;
+        filterPrev.disabled = filterBar.scrollLeft <= 1;
+        filterNext.disabled = filterBar.scrollLeft >= maxScroll - 1;
+      }
+
+      function stepFilters(direction) {
+        const btns = filterBar.querySelectorAll(".filter-btn");
+        let step = filterBar.clientWidth;
+        if (btns.length >= 2) {
+          step = btns[0].offsetWidth + btns[1].offsetWidth + 16;
+        }
+        filterBar.scrollBy({ left: direction * step, behavior: "smooth" });
+      }
+
+      filterPrev.addEventListener("click", () => stepFilters(-1));
+      filterNext.addEventListener("click", () => stepFilters(1));
+      filterBar.addEventListener("scroll", updateFilterNav, { passive: true });
+      window.addEventListener("resize", updateFilterNav);
+      updateFilterNav();
 
       const filterButtons = document.querySelectorAll(".filter-btn");
       const cards = document.querySelectorAll("#apps .app-card");
