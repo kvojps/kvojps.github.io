@@ -568,16 +568,21 @@ main > section:first-child {
 
 @media (max-width: 560px) {
   .timeline-item {
-    flex-wrap: wrap;
-    gap: 4px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
   }
 
   .timeline-date {
     width: auto;
   }
 
+  .timeline-role {
+    width: 100%;
+  }
+
   .timeline-org {
-    margin-left: auto;
+    text-align: left;
   }
 }
 
