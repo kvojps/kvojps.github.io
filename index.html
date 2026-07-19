@@ -8,6 +8,16 @@
       name="description"
       content="Portfólio de kvojps, Engenheiro de Software. Conheça minha experiência e os apps desktop que desenvolvi: Meu Negócio, Meu Dinheiro, Git Dlog e Meu Aprendizado."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kvojps.github.io/" />
+    <meta property="og:title" content="kvojps · Engenheiro de Software" />
+    <meta
+      property="og:description"
+      content="Portfólio de kvojps, Engenheiro de Software. Conheça minha experiência e os apps desktop que desenvolvi: Meu Negócio, Meu Dinheiro, Git Dlog e Meu Aprendizado."
+    />
+    <meta property="og:image" content="https://kvojps.github.io/assets/logo.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,10 +63,11 @@
               <span class="dot"></span>
               Disponível para novos projetos freelance
             </span>
-            <h1>Engenheiro de Software</h1>
+            <h1>Software que resolve problemas de negócio reais</h1>
             <p>
-              Resolvo problemas de negócio com software &mdash; da concepção
-              à implantação de soluções escaláveis e confiáveis.
+              Sou José Ferreira (kvojps), Engenheiro de Software &mdash; atuo
+              da concepção à implantação de soluções web e desktop escaláveis
+              e confiáveis.
             </p>
             <div class="hero-links">
               <a class="btn-primary" href="mailto:josefjuniordev@gmail.com"
@@ -100,7 +111,8 @@
     <div class="wrap">
       <main>
         <section class="about" id="sobre">
-          <p class="section-title">Sobre</p>
+          <p class="section-eyebrow">Sobre</p>
+          <h2 class="section-title">Experiência e formação</h2>
           <div class="about-grid">
             <p class="about-text">
               José Ferreira, Engenheiro de Software há 4 anos na Fitec, onde atuo na
@@ -120,7 +132,8 @@
         </section>
 
         <section class="projects" id="apps">
-          <p class="section-title">Apps Desktop</p>
+          <p class="section-eyebrow">Apps Desktop</p>
+          <h2 class="section-title">Ferramentas gratuitas para Windows</h2>
           <p class="section-lead">
             Apps desktop para Windows que desenvolvi e disponibilizo
             gratuitamente para ajudar em fluxos do dia a dia e de micro
@@ -140,7 +153,7 @@
             <div class="app-top">
               <img class="app-icon" src="assets/icon-dlog.png" alt="" />
               <div class="app-heading">
-                <h2>Git Dlog</h2>
+                <h3>Git Dlog</h3>
                 <div class="app-chips">
                   <span class="chip chip-category">Dev tools</span>
                   <span class="chip chip-free">Grátis</span>
@@ -186,7 +199,7 @@
             <div class="app-top">
               <img class="app-icon" src="assets/icon-aprendizado.png" alt="" />
               <div class="app-heading">
-                <h2>Meu Aprendizado</h2>
+                <h3>Meu Aprendizado</h3>
                 <div class="app-chips">
                   <span class="chip chip-category">Produtividade</span>
                   <span class="chip chip-free">Grátis</span>
@@ -232,7 +245,7 @@
             <div class="app-top">
               <img class="app-icon" src="assets/icon-dinheiro.png" alt="" />
               <div class="app-heading">
-                <h2>Meu Dinheiro</h2>
+                <h3>Meu Dinheiro</h3>
                 <div class="app-chips">
                   <span class="chip chip-category">Finanças</span>
                   <span class="chip chip-free">Grátis</span>
@@ -276,7 +289,7 @@
             <div class="app-top">
               <img class="app-icon" src="assets/icon-negocio.png" alt="" />
               <div class="app-heading">
-                <h2>Meu Negócio</h2>
+                <h3>Meu Negócio</h3>
                 <div class="app-chips">
                   <span class="chip chip-category">Gestão</span>
                   <span class="chip chip-free">Grátis</span>
@@ -319,16 +332,17 @@
         </section>
 
         <section class="projects" id="web">
-          <p class="section-title">Projetos Web</p>
+          <p class="section-eyebrow">Projetos Web</p>
+          <h2 class="section-title">Sites e landing pages para clientes</h2>
           <p class="section-lead">
             Sites e landing pages que desenvolvi sob demanda para clientes.
           </p>
 
-          <div class="apps-grid">
-            <article class="app-card">
+          <div class="apps-grid apps-grid--single">
+            <article class="app-card app-card--wide">
               <div class="app-top">
                 <div class="app-heading">
-                  <h2>CT Israel Dayan</h2>
+                  <h3>CT Israel Dayan</h3>
                   <div class="app-chips">
                     <span class="chip chip-category">Landing page</span>
                   </div>
@@ -370,7 +384,7 @@
         </section>
 
         <section class="contact" id="contato">
-          <p class="section-title">Contato</p>
+          <p class="section-eyebrow">Contato</p>
           <div class="contact-card">
             <div class="contact-text">
               <span class="badge-available">
@@ -629,7 +643,7 @@
       });
 
       const filterButtons = document.querySelectorAll(".filter-btn");
-      const cards = document.querySelectorAll(".app-card");
+      const cards = document.querySelectorAll("#apps .app-card");
       filterButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
           filterButtons.forEach((b) => b.classList.remove("active"));
