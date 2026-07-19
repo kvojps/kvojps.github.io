@@ -800,13 +800,17 @@ main > section:first-child {
 }
 
 .btn-details {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: 1px solid var(--border);
   color: var(--text);
   font-family: inherit;
   font-weight: 600;
-  font-size: 13.5px;
-  padding: 9px 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 9px 16px;
   border-radius: 8px;
   cursor: pointer;
   transition:
@@ -822,12 +826,15 @@ main > section:first-child {
 .btn-download {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background: var(--brand);
+  border: 1px solid transparent;
   color: #fff;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
+  line-height: 1.6;
   padding: 9px 16px;
   border-radius: 8px;
   transition: background 0.15s ease;
