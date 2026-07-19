@@ -10,7 +10,11 @@
   --brand: #2a78d6;
   --brand-dark: #1f5fae;
   --brand-tint: #eaf2fc;
-  --shadow: none;
+  --accent: #1a9c6f;
+  --accent-tint: #e6f6ef;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+  --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08), 0 2px 4px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0 16px 36px rgba(16, 24, 40, 0.12), 0 4px 10px rgba(16, 24, 40, 0.06);
   --header-h: 72px;
 }
 
@@ -24,7 +28,11 @@
     --brand: #4d94e8;
     --brand-dark: #2a78d6;
     --brand-tint: #1c2938;
-    --shadow: none;
+    --accent: #3ecf94;
+    --accent-tint: #16332a;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.35);
   }
 }
 
@@ -86,11 +94,46 @@ body {
 /* Hero */
 .hero {
   width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(700px circle at 20% 10%, var(--brand-tint), transparent 60%);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-inner {
+  position: relative;
+  z-index: 1;
   padding: 64px 24px 88px;
   border-bottom: 1px solid var(--border);
+}
+
+.badge-available {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-tint);
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.badge-available .dot {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .hero-grid {
@@ -103,10 +146,17 @@ body {
 .hero-stats {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 14px;
   margin: 0;
-  padding-left: 40px;
-  border-left: 1px solid var(--border);
+  padding: 0;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
 }
 
 .hero-stats dt {
@@ -130,11 +180,11 @@ body {
   .hero-stats {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 24px 40px;
-    padding-left: 0;
-    padding-top: 28px;
-    border-left: none;
-    border-top: 1px solid var(--border);
+    gap: 14px;
+  }
+
+  .stat {
+    flex: 1 1 160px;
   }
 }
 
@@ -398,6 +448,7 @@ main > section:first-child {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  box-shadow: var(--shadow-sm);
 }
 
 .contact-text h2 {
@@ -434,11 +485,45 @@ main > section:first-child {
   padding: 24px;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.15s ease;
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .app-card:hover {
-  border-color: var(--text-muted);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.shot-frame {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 0 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.shot-frame-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.shot-frame-bar span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.shot-frame .app-shot-wrap {
+  border: none;
+  border-radius: 0;
+  margin: 0;
 }
 
 .app-top {
@@ -474,8 +559,10 @@ main > section:first-child {
 .app-chips {
   display: flex;
   align-items: center;
+  align-content: flex-start;
   gap: 6px;
   flex-wrap: wrap;
+  min-height: 54px;
 }
 
 .chip-category,
@@ -722,6 +809,38 @@ body.modal-open {
   flex-wrap: wrap;
   padding-top: 20px;
   border-top: 1px solid var(--border);
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.apps-grid > .app-card:nth-child(2) {
+  transition-delay: 0.06s;
+}
+
+.apps-grid > .app-card:nth-child(3) {
+  transition-delay: 0.12s;
+}
+
+.apps-grid > .app-card:nth-child(4) {
+  transition-delay: 0.18s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+  }
 }
 
 /* Footer */

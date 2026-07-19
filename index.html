@@ -49,6 +49,10 @@
       <div class="wrap hero-inner">
         <div class="hero-grid">
           <div class="hero-main">
+            <span class="badge-available">
+              <span class="dot"></span>
+              Disponível para novos projetos freelance
+            </span>
             <h1>Engenheiro de Software</h1>
             <p>
               Resolvo problemas de negócio com software &mdash; da concepção
@@ -144,6 +148,12 @@
               </div>
               <span class="badge">v1.0.1-beta</span>
             </div>
+            <div class="shot-frame">
+              <div class="shot-frame-bar"><span></span><span></span><span></span></div>
+              <div class="app-shot-wrap">
+                <img class="app-shot" src="assets/screenshot-dlog.png" alt="Captura de tela do Git Dlog" loading="lazy" onerror="this.style.display='none'" />
+              </div>
+            </div>
             <p class="app-tagline">
               Status de HEAD e branches de vários repositórios git.
             </p>
@@ -183,6 +193,12 @@
                 </div>
               </div>
               <span class="badge">v1.0.1-beta</span>
+            </div>
+            <div class="shot-frame">
+              <div class="shot-frame-bar"><span></span><span></span><span></span></div>
+              <div class="app-shot-wrap">
+                <img class="app-shot" src="assets/screenshot-aprendizado.png" alt="Captura de tela do Meu Aprendizado" loading="lazy" onerror="this.style.display='none'" />
+              </div>
             </div>
             <p class="app-tagline">
               Organize aprendizados em árvores de tópicos.
@@ -224,6 +240,12 @@
               </div>
               <span class="badge">v1.2.0-beta</span>
             </div>
+            <div class="shot-frame">
+              <div class="shot-frame-bar"><span></span><span></span><span></span></div>
+              <div class="app-shot-wrap">
+                <img class="app-shot" src="assets/screenshot-dinheiro.png" alt="Captura de tela do Meu Dinheiro" loading="lazy" onerror="this.style.display='none'" />
+              </div>
+            </div>
             <p class="app-tagline">Controle financeiro pessoal.</p>
             <div class="app-actions">
               <button class="btn-details" type="button" data-open="dinheiro">
@@ -261,6 +283,12 @@
                 </div>
               </div>
               <span class="badge">v1.0.8-beta</span>
+            </div>
+            <div class="shot-frame">
+              <div class="shot-frame-bar"><span></span><span></span><span></span></div>
+              <div class="app-shot-wrap">
+                <img class="app-shot" src="assets/screenshot-negocio.png" alt="Captura de tela do Meu Negócio" loading="lazy" onerror="this.style.display='none'" />
+              </div>
             </div>
             <p class="app-tagline">Gestão de produtos, pedidos e vendas.</p>
             <div class="app-actions">
@@ -306,6 +334,12 @@
                   </div>
                 </div>
               </div>
+              <div class="shot-frame">
+                <div class="shot-frame-bar"><span></span><span></span><span></span></div>
+                <div class="app-shot-wrap">
+                  <img class="app-shot" src="assets/screenshot-ctisrael.png" alt="Captura de tela do site CT Israel Dayan" loading="lazy" onerror="this.style.display='none'" />
+                </div>
+              </div>
               <p class="app-tagline">
                 Landing page institucional para academia de artes marciais.
               </p>
@@ -339,6 +373,10 @@
           <p class="section-title">Contato</p>
           <div class="contact-card">
             <div class="contact-text">
+              <span class="badge-available">
+                <span class="dot"></span>
+                Disponível para novos projetos freelance
+              </span>
               <h2>Vamos conversar?</h2>
               <p>
                 Aberto a oportunidades como freelancer em desenvolvimento
@@ -639,6 +677,25 @@
         if (e.key === "Escape" && heroNav.classList.contains("open")) closeNav();
         if (e.key === "Escape" && !overlay.hidden) closeModal();
       });
+
+      const revealEls = document.querySelectorAll("main > section, .app-card");
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+        );
+        revealEls.forEach((el) => {
+          el.classList.add("reveal");
+          revealObserver.observe(el);
+        });
+      }
     </script>
   </body>
 </html>
