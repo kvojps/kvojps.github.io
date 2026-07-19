@@ -358,7 +358,6 @@ main > section:first-child {
   font-size: 15px;
   color: var(--text-muted);
   margin: 0 0 24px;
-  max-width: 52ch;
 }
 
 /* Filter bar */
