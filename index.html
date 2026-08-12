@@ -36,7 +36,7 @@
   <body>
     <header class="site-header" id="topo">
       <div class="wrap site-header-inner">
-        <a class="brand" href="#topo">
+        <a class="brand" id="brand" href="#" aria-label="Voltar ao topo">
           <img class="hero-logo" src="assets/logo.png" alt="" />
           José Ferreira
         </a>
@@ -1148,6 +1148,15 @@
 
       heroNav.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", closeNav);
+      });
+
+      document.getElementById("brand").addEventListener("click", (e) => {
+        e.preventDefault();
+        closeNav();
+        window.scrollTo({ top: 0 });
+        if (window.location.hash) {
+          history.replaceState(null, "", window.location.pathname);
+        }
       });
 
       document.addEventListener("click", (e) => {
