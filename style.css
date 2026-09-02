@@ -19,9 +19,10 @@
      derivadas. Este é o ponto único de definição: recolorir a página
      inteira é editar este bloco.
 
-     Os nomes abaixo são legados e mentem sobre o que carregam: --brand
-     carrega o sinal vermelho e --accent carrega tinta. Dívida deliberada,
-     paga no ticket 07. */
+     Os nomes --brand* são legados e mentem sobre o que carregam: --brand
+     carrega o sinal vermelho. Dívida deliberada, paga no ticket 07. O par
+     --accent/--accent-tint (o antigo verde semântico) foi retirado junto
+     com o verde neste ticket — não sobrou uso para renomear. */
 
   /* papel — rampa neutra clara */
   --bg: #f5f2ec;
@@ -42,10 +43,6 @@
   /* campo de apoio: papel, não sinal. O vermelho aparece em traço e em
      botão; um campo vermelho inteiro gasta o acento da seção. */
   --brand-tint: #ede9e1;
-
-  /* o verde semântico não é traduzido para outra cor: vira tinta e cinza */
-  --accent: #111111;
-  --accent-tint: #ede9e1;
 
   /* texto e preenchimento sobre campo de sinal */
   --on-signal: #fbf9f5;
@@ -178,11 +175,15 @@ body {
 .hero-shot {
   display: block;
   text-decoration: none;
-  transition: transform 0.25s ease;
 }
 
-.hero-shot:hover {
-  transform: translateY(-4px);
+/* Retorno de interação: o fio da moldura vai ao sinal e a imagem volta à
+   cor. Sem deslocamento, sem sombra. :active cobre o toque, onde não há
+   hover. */
+.hero-shot:hover .shot-frame,
+.hero-shot:focus-within .shot-frame,
+.hero-shot:active .shot-frame {
+  border-color: var(--brand);
 }
 
 .hero-visual .shot-frame {
@@ -218,7 +219,7 @@ body {
 .hero-visual figcaption a {
   font-size: 13px;
   font-weight: 600;
-  color: var(--brand);
+  color: var(--text);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -234,25 +235,20 @@ body {
   }
 }
 
+/* Disponibilidade: era pílula colorida com ponto de status. Vira rótulo
+   tipográfico com fio — caixa alta em cinza, com fio estrutural à esquerda.
+   O sinal de estado é a tipografia, não a cor. */
 .badge-available {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   font-size: 13px;
-  font-weight: 600;
-  color: var(--accent);
-  background: var(--accent-tint);
-  padding: 6px 12px;
-  border-radius: var(--radius-sm);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-left: 2px solid var(--text);
+  padding: 2px 0 2px 10px;
   margin-bottom: 20px;
-}
-
-.badge-available .dot {
-  width: 7px;
-  height: 7px;
-  flex: none;
-  border-radius: 50%;
-  background: var(--accent);
 }
 
 .hero-logo {
@@ -271,9 +267,10 @@ body {
   letter-spacing: var(--tracking-tight);
 }
 
+/* A primeira dobra gasta seu vermelho no botão primário; o trecho
+   destacado dentro do título fica em tinta. */
 .hero h1 .hl {
-  position: relative;
-  color: var(--brand);
+  color: var(--text);
   white-space: nowrap;
 }
 
@@ -301,11 +298,15 @@ body {
   padding: 0;
 }
 
+/* Marcas de confirmação: eram tiques cromáticos. Viram rótulo tipográfico
+   com fio — caixa alta, cada item marcado por um fio curto em tinta. */
 .hero-points li {
   position: relative;
-  padding-left: 24px;
-  font-size: 14px;
-  font-weight: 600;
+  padding-left: 22px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--text-muted);
 }
 
@@ -313,12 +314,10 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  top: 6px;
-  width: 15px;
-  height: 9px;
-  border-left: 2px solid var(--accent);
-  border-bottom: 2px solid var(--accent);
-  transform: rotate(-45deg);
+  top: 0.62em;
+  width: 12px;
+  height: 2px;
+  background: var(--text);
 }
 
 /* Credibility strip */
@@ -366,7 +365,7 @@ body {
 
 /* Buttons */
 .text-link {
-  color: var(--brand);
+  color: var(--text);
   text-decoration: none;
   font-weight: 600;
   font-size: 15px;
@@ -600,7 +599,7 @@ main > section:first-child {
 }
 
 .section-eyebrow {
-  color: var(--brand);
+  color: var(--text);
   margin: 0 0 10px;
 }
 
@@ -639,14 +638,17 @@ main > section:first-child {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 26px 24px;
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease;
 }
 
+/* Hover de card: sem deslocamento e sem sombra — a borda e o título vão
+   ao sinal, sem transição (a classe .reveal, sempre presente no card,
+   governa o transition e não abriria espaço para animá-los). */
 .service-card:hover {
   border-color: var(--brand);
-  transform: translateY(-2px);
+}
+
+.service-card:hover h3 {
+  color: var(--brand);
 }
 
 .service-icon {
@@ -657,7 +659,7 @@ main > section:first-child {
   height: 44px;
   border-radius: var(--radius-sm);
   background: var(--brand-tint);
-  color: var(--brand);
+  color: var(--text);
   margin-bottom: 16px;
 }
 
@@ -704,7 +706,7 @@ main > section:first-child {
   top: 7px;
   width: 6px;
   height: 6px;
-  background: var(--brand);
+  background: var(--text-muted);
 }
 
 /* Process */
@@ -786,11 +788,14 @@ main > section:first-child {
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   gap: 28px;
   align-items: start;
-  transition: transform 0.2s ease;
 }
 
 .case-card:hover {
-  transform: translateY(-2px);
+  border-color: var(--brand);
+}
+
+.case-card:hover h3 {
+  color: var(--brand);
 }
 
 .case-media .shot-frame {
@@ -810,12 +815,13 @@ main > section:first-child {
   margin: 0 0 22px;
 }
 
+/* Legenda que era vermelha: passa ao papel visual de rótulo, em cinza. */
 .case-detail dt {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.07em;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--brand);
+  color: var(--text-muted);
   margin-bottom: 5px;
 }
 
@@ -1031,7 +1037,7 @@ main > section:first-child {
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
-  color: var(--brand);
+  color: var(--text);
   list-style: none;
   display: inline-flex;
   align-items: center;
@@ -1077,6 +1083,8 @@ main > section:first-child {
   border-left: 2px solid var(--text);
 }
 
+/* Marcador de linha do tempo: era ponto cromático. O fio é a régua de 2 px
+   à esquerda do item; o marcador fica em tinta, sem cor de estado. */
 .timeline-item::before {
   content: "";
   position: absolute;
@@ -1084,7 +1092,7 @@ main > section:first-child {
   top: 18px;
   width: 8px;
   height: 8px;
-  background: var(--brand);
+  background: var(--text);
 }
 
 .timeline-item:last-child {
@@ -1110,7 +1118,7 @@ main > section:first-child {
   flex: none;
   font-size: 13px;
   font-weight: 600;
-  color: var(--brand);
+  color: var(--text-muted);
   text-align: right;
 }
 
@@ -1261,11 +1269,14 @@ main > section:first-child {
   padding: 18px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease;
 }
 
 .app-card:hover {
-  transform: translateY(-2px);
+  border-color: var(--brand);
+}
+
+.app-card:hover h3 {
+  color: var(--brand);
 }
 
 .shot-frame {
@@ -1334,7 +1345,7 @@ main > section:first-child {
   display: flex;
   align-items: center;
   align-content: flex-start;
-  gap: 6px;
+  gap: 8px 16px;
   flex-wrap: wrap;
 }
 
@@ -1342,25 +1353,22 @@ main > section:first-child {
   margin: 0 0 16px;
 }
 
+/* Chips deixam de ser pílulas: viram rótulo — texto tratado, sem fundo.
+   O marcador de gratuidade era sinal cromático de estado; ganha um fio
+   estrutural à esquerda para se distinguir da categoria. */
 .chip-category,
 .chip-free {
   font-size: 12px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: var(--radius-sm);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
-.chip-category {
-  color: var(--text-muted);
-  background: var(--bg);
-  border: 1px solid var(--border);
-}
-
 .chip-free {
-  color: var(--accent);
-  background: var(--accent-tint);
-  border: 1px solid transparent;
+  padding-left: 10px;
+  border-left: 2px solid var(--text);
 }
 
 .badge {
@@ -1423,13 +1431,17 @@ main > section:first-child {
   color: var(--brand);
 }
 
+/* Fora do modal, o botão de baixar/visitar não gasta o acento da seção
+   (que é o filtro ativo nos Apps e a chamada intercalada nos Trabalhos):
+   fica em tinta cheia, indo ao sinal só no hover. Dentro do modal ele é
+   o acento da peça — ver .modal-footer .btn-download. */
 .btn-download {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--brand);
-  border: 1px solid transparent;
+  background: var(--text);
+  border: 1px solid var(--text);
   color: var(--on-signal);
   text-decoration: none;
   font-weight: 600;
@@ -1437,12 +1449,15 @@ main > section:first-child {
   line-height: 1.6;
   padding: 9px 16px;
   border-radius: var(--radius-sm);
-  transition: background 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
   flex: none;
 }
 
 .btn-download:hover {
-  background: var(--brand-dark);
+  background: var(--brand);
+  border-color: var(--brand);
 }
 
 .btn-download svg {
@@ -1555,12 +1570,32 @@ body.modal-open {
   color: var(--text-muted);
 }
 
+/* Provas de trabalho em preto e branco: os screenshots entram
+   dessaturados com leve ganho de contraste, e voltam à cor quando o
+   visitante interage com o card (hover ou foco), ou dentro do modal, que
+   já é fruto de uma interação. Ícones de produto (.app-icon/.modal-icon)
+   ficam de fora — são marca, não fotografia. */
 .app-shot {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.25s ease;
+}
+
+.hero-shot:hover .app-shot,
+.hero-shot:focus-within .app-shot,
+.hero-shot:active .app-shot,
+.case-card:hover .app-shot,
+.case-card:focus-within .app-shot,
+.case-card:active .app-shot,
+.app-card:hover .app-shot,
+.app-card:focus-within .app-shot,
+.app-card:active .app-shot,
+.modal-body .app-shot {
+  filter: none;
 }
 
 .modal-desc {
@@ -1592,7 +1627,7 @@ body.modal-open {
   top: 8px;
   width: 6px;
   height: 6px;
-  background: var(--brand);
+  background: var(--text-muted);
 }
 
 .modal-footer {
@@ -1602,6 +1637,17 @@ body.modal-open {
   flex-wrap: wrap;
   padding-top: 20px;
   border-top: 1px solid var(--border);
+}
+
+/* No modal, o botão de download é o acento vermelho da peça. */
+.modal-footer .btn-download {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.modal-footer .btn-download:hover {
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
 }
 
 /* Scroll reveal */
