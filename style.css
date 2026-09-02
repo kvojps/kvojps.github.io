@@ -56,17 +56,22 @@
   --scrim-nav: rgba(17, 17, 17, 0.45);
   --scrim-modal: rgba(17, 17, 17, 0.5);
 
-  --shadow-sm: 0 1px 2px rgba(17, 17, 17, 0.06), 0 1px 3px rgba(17, 17, 17, 0.08);
-  --shadow-md: 0 4px 12px rgba(17, 17, 17, 0.08), 0 2px 4px rgba(17, 17, 17, 0.06);
-  --shadow-lg: 0 16px 36px rgba(17, 17, 17, 0.12), 0 4px 10px rgba(17, 17, 17, 0.06);
-  --shadow-drawer: -8px 0 24px rgba(17, 17, 17, 0.12);
+  /* Sombra não existe como token: a marca não tem sombra, e um token de
+     sombra presente é convite a reintroduzi-la. */
+
+  /* Fio: dois níveis, os dois usando --text e --border direto — não ganham
+     token próprio nesta rodada. Estrutural: 2 px em tinta, separando
+     cabeçalho, seções, o box de processo e a linha do tempo. De contorno:
+     1 px em divisor, fechando bordas de card e campo. A moldura de
+     screenshot é o caso à parte: 1 px, mas em tinta, para ler como "isto
+     é software rodando". */
 
   /* Raio: a marca não arredonda. Os degraus existem como ponto único de
-     retomada caso ela um dia mude de ideia — todos em zero. */
+     retomada caso ela um dia mude de ideia — todos em zero, e agora
+     referenciados pelas declarações no lugar de valores literais. */
   --radius-sm: 0;
   --radius-md: 0;
   --radius-lg: 0;
-  --radius-pill: 0;
 
   --header-h: 72px;
 }
@@ -121,7 +126,7 @@ body {
   right: 0;
   z-index: 100;
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--text);
 }
 
 .site-header-inner {
@@ -148,18 +153,6 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(700px circle at 10% -10%, var(--brand-tint), transparent 62%),
-    radial-gradient(560px circle at 92% 15%, var(--brand-tint), transparent 68%);
-  opacity: 0.75;
-  pointer-events: none;
-  z-index: 0;
 }
 
 .hero-inner {
@@ -195,7 +188,6 @@ body {
 .hero-visual .shot-frame {
   margin: 0;
   background: var(--surface);
-  box-shadow: var(--shadow-lg);
 }
 
 .hero-visual .app-shot-wrap {
@@ -251,7 +243,7 @@ body {
   color: var(--accent);
   background: var(--accent-tint);
   padding: 6px 12px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   margin-bottom: 20px;
 }
 
@@ -267,7 +259,7 @@ body {
   display: block;
   width: 22px;
   height: 22px;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
 }
 
 .hero h1 {
@@ -327,7 +319,6 @@ body {
   border-left: 2px solid var(--accent);
   border-bottom: 2px solid var(--accent);
   transform: rotate(-45deg);
-  border-radius: 1px;
 }
 
 /* Credibility strip */
@@ -397,16 +388,12 @@ body {
   font-weight: 600;
   font-size: 15px;
   padding: 12px 22px;
-  border-radius: 8px;
-  box-shadow: var(--shadow-sm);
-  transition:
-    background 0.15s ease,
-    box-shadow 0.15s ease;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease;
 }
 
 .btn-primary:hover {
   background: var(--brand-dark);
-  box-shadow: var(--shadow-md);
 }
 
 .btn-ghost {
@@ -420,7 +407,7 @@ body {
   font-weight: 600;
   font-size: 15px;
   padding: 12px 22px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   transition:
     border-color 0.15s ease,
     color 0.15s ease;
@@ -454,7 +441,7 @@ body {
   color: var(--on-signal);
   background: var(--brand);
   padding: 9px 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   transition: background 0.15s ease;
 }
 
@@ -527,7 +514,7 @@ body {
     font-weight: 600;
     font-size: 13px;
     padding: 9px 14px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     white-space: nowrap;
     transition: background 0.15s ease;
   }
@@ -562,7 +549,6 @@ body {
     padding: 24px max(24px, env(safe-area-inset-right)) 24px 24px;
     background: var(--surface);
     border-left: 1px solid var(--border);
-    box-shadow: var(--shadow-drawer);
     transform: translateX(100%);
     transition: transform 0.3s ease;
   }
@@ -590,7 +576,7 @@ main {
 
 main > section {
   padding: 80px 0;
-  border-top: 1px solid var(--border);
+  border-top: 2px solid var(--text);
   scroll-margin-top: calc(var(--header-h) + 8px);
 }
 
@@ -651,17 +637,14 @@ main > section:first-child {
 .service-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   padding: 26px 24px;
-  box-shadow: var(--shadow-sm);
   transition:
-    box-shadow 0.2s ease,
     transform 0.2s ease,
     border-color 0.2s ease;
 }
 
 .service-card:hover {
-  box-shadow: var(--shadow-md);
   border-color: var(--brand);
   transform: translateY(-2px);
 }
@@ -672,7 +655,7 @@ main > section:first-child {
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   background: var(--brand-tint);
   color: var(--brand);
   margin-bottom: 16px;
@@ -721,7 +704,6 @@ main > section:first-child {
   top: 7px;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
   background: var(--brand);
 }
 
@@ -730,8 +712,8 @@ main > section:first-child {
   margin-top: 48px;
   padding: 30px 28px;
   background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 2px solid var(--text);
+  border-radius: var(--radius-md);
 }
 
 .process-title {
@@ -768,7 +750,7 @@ main > section:first-child {
   width: 30px;
   height: 30px;
   flex: none;
-  border-radius: 50%;
+  border-radius: var(--radius-sm);
   background: var(--brand);
   color: var(--on-signal);
   font-family: var(--font-display);
@@ -798,20 +780,16 @@ main > section:first-child {
 .case-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   padding: 24px;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   gap: 28px;
   align-items: start;
-  box-shadow: var(--shadow-sm);
-  transition:
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .case-card:hover {
-  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
@@ -879,8 +857,8 @@ main > section:first-child {
 .cta-inline {
   margin-top: 32px;
   padding: 22px 26px;
-  border: 1px dashed var(--border);
-  border-radius: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -931,7 +909,7 @@ main > section:first-child {
   justify-content: center;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 50%;
+  border-radius: var(--radius-sm);
   color: var(--text-muted);
   cursor: pointer;
   transition:
@@ -969,7 +947,7 @@ main > section:first-child {
   font-size: 13px;
   font-weight: 600;
   padding: 7px 14px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition:
     background 0.15s ease,
@@ -1023,9 +1001,8 @@ main > section:first-child {
 .stat {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   padding: 16px 20px;
-  box-shadow: var(--shadow-sm);
 }
 
 .about-stats dt {
@@ -1097,7 +1074,7 @@ main > section:first-child {
   align-items: baseline;
   gap: 16px;
   padding: 12px 0 12px 24px;
-  border-left: 2px solid var(--border);
+  border-left: 2px solid var(--text);
 }
 
 .timeline-item::before {
@@ -1107,7 +1084,6 @@ main > section:first-child {
   top: 18px;
   width: 8px;
   height: 8px;
-  border-radius: 50%;
   background: var(--brand);
 }
 
@@ -1162,14 +1138,13 @@ main > section:first-child {
 .contact-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   padding: 44px 40px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  box-shadow: var(--shadow-md);
 }
 
 .contact-text {
@@ -1261,7 +1236,7 @@ main > section:first-child {
     font-weight: 600;
     font-size: 14px;
     padding: 12px 18px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
   }
 
@@ -1282,27 +1257,22 @@ main > section:first-child {
 .app-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   padding: 18px;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-sm);
-  transition:
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .app-card:hover {
-  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
 .shot-frame {
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  border: 1px solid var(--text);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   margin: 0 0 16px;
-  box-shadow: var(--shadow-sm);
 }
 
 .shot-frame-bar {
@@ -1311,14 +1281,16 @@ main > section:first-child {
   gap: 6px;
   padding: 8px 10px;
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--text);
 }
 
+/* Bolinhas de semáforo: forma de círculo por definição, mas sem cor de
+   semáforo — cinza da paleta, alheio a vermelho/amarelo/verde. */
 .shot-frame-bar span {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--border);
+  background: var(--text-muted);
 }
 
 .shot-frame .app-shot-wrap {
@@ -1339,7 +1311,7 @@ main > section:first-child {
   display: block;
   width: 48px;
   height: 48px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   flex: none;
 }
 
@@ -1375,7 +1347,7 @@ main > section:first-child {
   font-size: 12px;
   font-weight: 600;
   padding: 2px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   white-space: nowrap;
 }
 
@@ -1398,7 +1370,7 @@ main > section:first-child {
   background: transparent;
   border: 1px solid var(--border);
   padding: 3px 9px;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   white-space: nowrap;
   flex: none;
 }
@@ -1439,7 +1411,7 @@ main > section:first-child {
   font-size: 14px;
   line-height: 1.6;
   padding: 9px 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition:
     border-color 0.15s ease,
@@ -1464,7 +1436,7 @@ main > section:first-child {
   font-size: 14px;
   line-height: 1.6;
   padding: 9px 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   transition: background 0.15s ease;
   flex: none;
 }
@@ -1512,7 +1484,7 @@ body.modal-open {
   overflow-y: auto;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   padding: 32px;
 }
 
@@ -1527,7 +1499,7 @@ body.modal-open {
   justify-content: center;
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 50%;
+  border-radius: var(--radius-sm);
   color: var(--text-muted);
   cursor: pointer;
 }
@@ -1566,11 +1538,11 @@ body.modal-open {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   margin: 20px 0;
   border: 1px solid var(--border);
-  background: linear-gradient(135deg, var(--brand-tint), var(--surface));
+  background: var(--bg-alt);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1620,7 +1592,6 @@ body.modal-open {
   top: 8px;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
   background: var(--brand);
 }
 
@@ -1786,7 +1757,7 @@ footer a {
     max-height: 92vh;
     max-height: 92dvh;
     padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
-    border-radius: 16px 16px 0 0;
+    border-radius: var(--radius-sm);
     border-left: none;
     border-right: none;
     border-bottom: none;
