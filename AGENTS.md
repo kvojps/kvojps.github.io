@@ -11,7 +11,7 @@ Issues e specs vivem como markdown em `.scratch/`. See `docs/agents/issue-tracke
 
 ### Triage labels
 
-Os cinco papéis canônicos, sem renomeação. See `docs/agents/triage-labels.md`.
+Os cinco papéis canônicos, sem renomeação, mais um `done` local. See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 

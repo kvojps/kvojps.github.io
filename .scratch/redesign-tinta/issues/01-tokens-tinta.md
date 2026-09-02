@@ -14,7 +14,7 @@ proíbe explicitamente. O degradê sai nesta fatia.
 
 **Blocked by:** None (can start immediately).
 
-**Status:** ready-for-agent
+**Status:** done
 
 - [x] O trabalho acontece numa branch dedicada; a branch principal permanece intocada e o site publicado continua no ar.
 - [x] Os quatro valores da paleta — papel, tinta, sinal e cinza — e as rampas derivadas estão declarados como token no ponto único de definição.
