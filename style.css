@@ -1,41 +1,66 @@
 :root {
-  color-scheme: light dark;
+  /* A marca tem uma paleta só: a página anuncia apenas claro, para que
+     controles nativos do navegador acompanhem. */
+  color-scheme: light;
+
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
   --font-display: 'Space Grotesk', var(--font-body);
-  --bg: #f5f7fa;
-  --bg-alt: #eef2f7;
-  --surface: #ffffff;
-  --text: #1c2530;
-  --text-muted: #5b6675;
-  --border: #e3e8ee;
-  --brand: #2a78d6;
-  --brand-dark: #1f5fae;
-  --brand-tint: #eaf2fc;
-  --accent: #1a9c6f;
-  --accent-tint: #e6f6ef;
-  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
-  --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08), 0 2px 4px rgba(16, 24, 40, 0.06);
-  --shadow-lg: 0 16px 36px rgba(16, 24, 40, 0.12), 0 4px 10px rgba(16, 24, 40, 0.06);
-  --header-h: 72px;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #12161c;
-    --bg-alt: #161c24;
-    --surface: #1a2028;
-    --text: #eef1f5;
-    --text-muted: #9aa5b3;
-    --border: #2a323d;
-    --brand: #4d94e8;
-    --brand-dark: #2a78d6;
-    --brand-tint: #1c2938;
-    --accent: #3ecf94;
-    --accent-tint: #16332a;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.35);
-  }
+  /* --- Paleta TINTA ---------------------------------------------------
+     Quatro valores fechados — papel, tinta, sinal e cinza — mais as rampas
+     derivadas. Este é o ponto único de definição: recolorir a página
+     inteira é editar este bloco.
+
+     Os nomes abaixo são legados e mentem sobre o que carregam: --brand
+     carrega o sinal vermelho e --accent carrega tinta. Dívida deliberada,
+     paga no ticket 07. */
+
+  /* papel — rampa neutra clara */
+  --bg: #f5f2ec;
+  --bg-alt: #ede9e1;
+  --surface: #fbf9f5;
+
+  /* tinta e cinza */
+  --text: #111111;
+  --text-muted: #6e6a63;
+
+  /* divisor */
+  --border: #d8d3c9;
+
+  /* sinal — o vermelho da ação, e o degrau escuro da sua rampa */
+  --brand: #d6291e;
+  --brand-dark: #a81f16;
+
+  /* campo de apoio: papel, não sinal. O vermelho aparece em traço e em
+     botão; um campo vermelho inteiro gasta o acento da seção. */
+  --brand-tint: #ede9e1;
+
+  /* o verde semântico não é traduzido para outra cor: vira tinta e cinza */
+  --accent: #111111;
+  --accent-tint: #ede9e1;
+
+  /* texto e preenchimento sobre campo de sinal */
+  --on-signal: #fbf9f5;
+
+  /* véus sobre a página — tinta transparente. Duas opacidades porque a
+     gaveta do menu e o modal já vinham assim: esta fatia troca a cor, não
+     o comportamento. */
+  --scrim-nav: rgba(17, 17, 17, 0.45);
+  --scrim-modal: rgba(17, 17, 17, 0.5);
+
+  --shadow-sm: 0 1px 2px rgba(17, 17, 17, 0.06), 0 1px 3px rgba(17, 17, 17, 0.08);
+  --shadow-md: 0 4px 12px rgba(17, 17, 17, 0.08), 0 2px 4px rgba(17, 17, 17, 0.06);
+  --shadow-lg: 0 16px 36px rgba(17, 17, 17, 0.12), 0 4px 10px rgba(17, 17, 17, 0.06);
+  --shadow-drawer: -8px 0 24px rgba(17, 17, 17, 0.12);
+
+  /* Raio: a marca não arredonda. Os degraus existem como ponto único de
+     retomada caso ela um dia mude de ideia — todos em zero. */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-pill: 0;
+
+  --header-h: 72px;
 }
 
 * {
@@ -357,7 +382,7 @@ body {
   align-items: center;
   justify-content: center;
   background: var(--brand);
-  color: #fff;
+  color: var(--on-signal);
   text-decoration: none;
   font-weight: 600;
   font-size: 15px;
@@ -416,7 +441,7 @@ body {
 }
 
 .hero-nav .nav-cta {
-  color: #fff;
+  color: var(--on-signal);
   background: var(--brand);
   padding: 9px 16px;
   border-radius: 8px;
@@ -425,7 +450,7 @@ body {
 
 .hero-nav .nav-cta:hover {
   background: var(--brand-dark);
-  color: #fff;
+  color: var(--on-signal);
 }
 
 /* CTA sempre visível no header mobile (no desktop quem cumpre esse papel
@@ -487,7 +512,7 @@ body {
     justify-content: center;
     margin-left: auto;
     background: var(--brand);
-    color: #fff;
+    color: var(--on-signal);
     text-decoration: none;
     font-weight: 600;
     font-size: 13.5px;
@@ -510,7 +535,7 @@ body {
     position: fixed;
     inset: 0;
     z-index: 99;
-    background: rgba(10, 14, 20, 0.45);
+    background: var(--scrim-nav);
   }
 
   .hero-nav {
@@ -527,7 +552,7 @@ body {
     padding: 24px max(24px, env(safe-area-inset-right)) 24px 24px;
     background: var(--surface);
     border-left: 1px solid var(--border);
-    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--shadow-drawer);
     transform: translateX(100%);
     transition: transform 0.3s ease;
   }
@@ -720,7 +745,7 @@ main > section:first-child {
   flex: none;
   border-radius: 50%;
   background: var(--brand);
-  color: #fff;
+  color: var(--on-signal);
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
@@ -933,7 +958,7 @@ main > section:first-child {
 .filter-btn.active {
   background: var(--brand);
   border-color: var(--brand);
-  color: #fff;
+  color: var(--on-signal);
 }
 
 /* About */
@@ -1107,8 +1132,8 @@ main > section:first-child {
 
 /* Contact */
 .contact-card {
-  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
-  border: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 44px 40px;
   display: flex;
@@ -1127,39 +1152,21 @@ main > section:first-child {
   font-family: var(--font-display);
   font-size: clamp(24px, 3vw, 32px);
   font-weight: 600;
-  color: #fff;
+  color: var(--text);
   margin: 0 0 10px;
   letter-spacing: -0.02em;
 }
 
 .contact-text p {
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-muted);
   margin: 0;
   max-width: 52ch;
 }
 
-.contact-card .badge-available {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.contact-card .badge-available .dot {
-  background: #7ef0c0;
-}
-
-.contact-card .btn-primary {
-  background: #fff;
-  color: var(--brand-dark);
-}
-
-.contact-card .btn-primary:hover {
-  background: #e8f0fa;
-}
-
-.contact-card .text-link {
-  color: #fff;
-}
+/* O cartão era um campo vermelho cheio, e por isso reescrevia badge, botão
+   e link para sobreviverem sobre ele. Sobre papel, todos valem o estilo
+   padrão da página: as sobrescritas saíram junto com o degradê. */
 
 .contact-actions {
   display: flex;
@@ -1171,7 +1178,7 @@ main > section:first-child {
 
 .contact-mail {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-muted);
   word-break: break-all;
 }
 
@@ -1421,7 +1428,7 @@ main > section:first-child {
   gap: 8px;
   background: var(--brand);
   border: 1px solid transparent;
-  color: #fff;
+  color: var(--on-signal);
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
@@ -1454,7 +1461,7 @@ body.modal-open {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 14, 20, 0.5);
+  background: var(--scrim-modal);
   display: flex;
   align-items: center;
   justify-content: center;
