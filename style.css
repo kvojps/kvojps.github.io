@@ -1574,32 +1574,12 @@ body.modal-open {
   color: var(--text-muted);
 }
 
-/* Provas de trabalho em preto e branco: os screenshots entram
-   dessaturados com leve ganho de contraste, e voltam à cor quando o
-   visitante interage com o card (hover ou foco), ou dentro do modal, que
-   já é fruto de uma interação. Ícones de produto (.app-icon/.modal-icon)
-   ficam de fora — são marca, não fotografia. */
 .app-shot {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: grayscale(1) contrast(1.05);
-  transition: filter 0.25s ease;
-}
-
-.hero-shot:hover .app-shot,
-.hero-shot:focus-within .app-shot,
-.hero-shot:active .app-shot,
-.case-card:hover .app-shot,
-.case-card:focus-within .app-shot,
-.case-card:active .app-shot,
-.app-card:hover .app-shot,
-.app-card:focus-within .app-shot,
-.app-card:active .app-shot,
-.modal-body .app-shot {
-  filter: none;
 }
 
 .modal-desc {
