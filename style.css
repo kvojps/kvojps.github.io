@@ -766,22 +766,9 @@ main > section:first-child {
   scroll-snap-align: start;
 }
 
-/* A esteira de cases vale só no desktop. Ela resolve escassez de espaço
-   horizontal, e no celular esse não é o problema: o card vira coluna única e
-   passa de 600px de altura, alto demais para viver dentro de uma faixa que
-   rola para o lado com encaixe obrigatório. Regra geral: esteira serve card
-   curto (os apps continuam nela), card alto empilha. Ver ADR 0001.
-   O JS não precisa saber: sem transbordo, setupOverflowNav esconde os
-   controles sozinho, e ele já reage a resize. */
 @media (max-width: 800px) {
-  .esteira--cases {
-    flex-direction: column;
-    overflow-x: visible;
-    scroll-snap-type: none;
-  }
-
   .esteira--cases > .case-card {
-    flex: 0 0 auto;
+    flex-basis: 88%;
   }
 }
 

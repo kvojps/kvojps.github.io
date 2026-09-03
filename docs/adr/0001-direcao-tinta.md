@@ -57,10 +57,9 @@ outro:
   (esforço `esteira-trabalhos`), um case largo por vez — antecipada ainda com dois cases, para a
   seção parar de crescer empilhada.
 
-  **A esteira de "Trabalhos" vale só a partir de 800px** (esforço de responsividade mobile). Abaixo
-  disso os cases empilham. A esteira resolve escassez de espaço horizontal, que é problema de
-  desktop; no celular o card de case vira coluna única e passa de 600px de altura, e um card assim
-  dentro de uma faixa com encaixe obrigatório troca rolagem vertical por swipe acidental, com os
-  controles ‹ › parados lá no topo, fora de vista. **Esteira serve card curto; card alto empilha** —
-  é essa regra, e não a seção, que decide: os cards de app têm ~350px e continuam em esteira nas duas
-  larguras. Quem for mexer nisto depois não deve "restaurar" a esteira no mobile.
+  **A esteira vale em todas as larguras, celular incluído.** O esforço de responsividade mobile
+  chegou a empilhar os cases abaixo de 800px, pelo argumento de que um card de case passa de 600px
+  de altura no celular e ficaria alto demais para uma faixa com encaixe de rolagem. **Revertido após
+  teste em aparelho real**: na mão funciona. Fica registrado para ninguém refazer o mesmo raciocínio
+  e reempilhar — se o problema aparecer um dia, o caminho é encurtar o card (mandar o "O que foi
+  feito" para um modal, como os apps já fazem), não trocar a esteira por pilha.
