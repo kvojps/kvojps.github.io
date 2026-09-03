@@ -170,12 +170,20 @@ rola, a peça é a seção.
 | Serviços | os números do processo |
 | Trabalhos | o botão da chamada intercalada |
 | Aplicativos | o filtro ativo |
-| Sobre | os números das estatísticas |
+| Sobre | o controle que abre a trajetória completa |
 | Contato | o botão do cartão de contato |
 | Rodapé | nenhum |
 | Modal | o botão de download |
 
 O vermelho de hover é transitório e **não conta** contra o orçamento estático da seção.
+
+> **Atualização (2026-09-03, esforço `enxugar-conteudo`, ticket 03):** a linha "Sobre"
+> era "os números das estatísticas". O bloco de estatísticas foi removido de "Sobre"
+> (cada número já vivia na prosa ao lado ou na faixa de prova), então o Acento passou
+> para **o controle que abre a trajetória completa** — o único elemento de ação da
+> seção. Alternativa registrada e não escolhida: deixar "Sobre" sem Acento, como a
+> faixa de prova e o rodapé. Ver `.scratch/enxugar-conteudo/issues/03-reescrever-sobre.md`
+> e o comentário no ticket 05 deste esforço.
 
 ### Tipografia
 

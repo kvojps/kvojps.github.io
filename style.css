@@ -977,18 +977,8 @@ main > section:first-child {
 }
 
 /* About */
-.about-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-  gap: 40px;
-  align-items: start;
-}
-
-@media (max-width: 860px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
+.about-copy {
+  max-width: 62ch;
 }
 
 .about-text {
@@ -1001,35 +991,6 @@ main > section:first-child {
   margin-bottom: 0;
 }
 
-.about-stats {
-  display: grid;
-  gap: 12px;
-  margin: 0;
-  padding: 0;
-}
-
-.stat {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 16px 20px;
-}
-
-.about-stats dt {
-  font-family: var(--font-body);
-  font-weight: 900;
-  font-size: 30px;
-  letter-spacing: var(--tracking-tight);
-  color: var(--signal);
-  line-height: var(--leading-tight);
-}
-
-.about-stats dd {
-  margin: 4px 0 0;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
 /* Trajectory (collapsible) */
 .trajectory {
   margin-top: 28px;
@@ -1037,11 +998,14 @@ main > section:first-child {
   padding-top: 20px;
 }
 
+/* Acento da seção "Sobre": com o bloco de estatísticas removido, o único
+   elemento em sinal é o controle que abre a trajetória — o elemento de ação
+   da seção. Ver orçamento de vermelho no spec da redesign-tinta. */
 .trajectory summary {
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--signal);
   list-style: none;
   display: inline-flex;
   align-items: center;

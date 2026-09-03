@@ -108,3 +108,22 @@ seção contra a tabela do orçamento.
 instantâneo); sem caminho de cor no toque (`:active` adicionado ao grupo de reveal); `transition:
 color` inútil em `.service-card` (removido); `:focus-visible` do hero divergindo do `:focus-within`
 dos cards (hero passou a `:focus-within`).
+
+### 2026-09-03 — reatribuição do Acento de "Sobre" (esforço `enxugar-conteudo`, ticket 03)
+
+O ticket 03 do esforço `enxugar-conteudo` removeu o bloco de estatísticas da seção "Sobre" —
+cada número (`4+` anos, `4` apps, `UPE`) já era dito na prosa ao lado ou na faixa de prova. Com
+`.about-stats dt` fora, a linha "Sobre" do orçamento de vermelho (que fixava "os números das
+estatísticas" como Acento) perde seu alvo.
+
+**Decisão:** o Acento de "Sobre" passa para `.trajectory summary` — o controle "Ver trajetória
+completa", único elemento de ação da seção. No CSS ele saiu de `color: var(--text)` para
+`color: var(--signal)` (o chevron `::after` segue por `currentColor`). A seção volta a ter
+exatamente um elemento em sinal em repouso.
+
+**Alternativa registrada e não escolhida:** deixar "Sobre" sem Acento, como já é permitido para
+a faixa de prova e o rodapé. Preferiu-se manter um Acento por seção com ação, já que "Sobre"
+tem uma.
+
+A tabela do spec da `redesign-tinta` foi atualizada na linha "Sobre" com uma nota de rodapé
+apontando para cá.
