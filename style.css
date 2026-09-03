@@ -631,6 +631,11 @@ main > section:first-child {
   gap: 20px;
 }
 
+/* Card sozinho na última linha ocupa as duas colunas. */
+.services-grid > .service-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 @media (max-width: 720px) {
   .services-grid {
     grid-template-columns: 1fr;
@@ -684,33 +689,7 @@ main > section:first-child {
 .service-card > p {
   font-size: 14px;
   color: var(--text-muted);
-  margin: 0 0 16px;
-}
-
-.service-list {
-  list-style: none;
   margin: 0;
-  padding: 16px 0 0;
-  border-top: 1px solid var(--border);
-  display: grid;
-  gap: 8px;
-}
-
-.service-list li {
-  position: relative;
-  padding-left: 18px;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-.service-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 7px;
-  width: 6px;
-  height: 6px;
-  background: var(--text-muted);
 }
 
 /* Process */
@@ -1625,6 +1604,10 @@ body.modal-open {
 
 .services-grid > .service-card:nth-child(4) {
   transition-delay: 0.18s;
+}
+
+.services-grid > .service-card:nth-child(5) {
+  transition-delay: 0.24s;
 }
 
 @media (prefers-reduced-motion: reduce) {
