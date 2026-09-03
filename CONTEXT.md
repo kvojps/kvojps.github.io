@@ -27,19 +27,15 @@ _Avoid_: cinza-claro, muted, texto fraco
 ### Marca no cabeçalho
 
 **Assinatura**:
-O bloco de marca do cabeçalho: o nome completo com o descritor abaixo, resolvido em tipografia e não
-em imagem.
+O bloco de marca do cabeçalho: o monograma "JF/" travado ao nome completo, lado a lado. Sem
+descritor — o que a pessoa faz aparece no título da página, não na assinatura.
 _Avoid_: logo, logotipo, marca-d'água
 
 **Monograma**:
-O símbolo reduzido da marca, derivado do avatar vermelho do design system. Vive como ícone e imagem
-de compartilhamento — nunca como elemento dentro da página.
+O símbolo "JF/" em quadrado sinal — a única imagem da identidade. Vive em três lugares: à esquerda
+do nome na assinatura, como favicon e como imagem de compartilhamento. Um só desenho em dois
+arquivos: `monogram.png` no tamanho de ícone, `avatar.png` no tamanho de compartilhamento.
 _Avoid_: logo, favicon, símbolo, ícone
-
-**Descritor**:
-A linha de serviço travada à assinatura — o que a pessoa faz, sempre nas mesmas palavras. Não é
-texto de página.
-_Avoid_: subtítulo, tagline, slogan, bio
 
 ### Elementos
 
