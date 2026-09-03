@@ -499,8 +499,7 @@
             esta lead, mantenha a frase em algum ponto da abertura da seção.
           -->
           <p class="section-lead">
-            Quatro apps para Windows que criei e distribuo de graça. Os dados
-            ficam na sua máquina.
+            Três apps para Windows que criei. Os dados ficam na sua máquina.
           </p>
 
           <div class="filter-carousel">
@@ -533,13 +532,6 @@
               </button>
               <button class="filter-btn" type="button" data-filter="dev">
                 Dev tools
-              </button>
-              <button
-                class="filter-btn"
-                type="button"
-                data-filter="produtividade"
-              >
-                Produtividade
               </button>
               <button class="filter-btn" type="button" data-filter="financas">
                 Finanças
@@ -614,7 +606,6 @@
           >
             <article class="app-card" data-category="gestao">
               <div class="app-top">
-                <img class="app-icon" src="assets/icon-negocio.png" alt="" />
                 <div class="app-heading">
                   <h3>Meu Negócio</h3>
                 </div>
@@ -627,24 +618,16 @@
                 <div class="shot-frame-bar">
                   <span></span><span></span><span></span>
                 </div>
-                <div class="app-shot-wrap">
-                  <img
-                    class="app-shot"
-                    src="assets/screenshot-meu-negocio-app.png"
-                    alt="Captura de tela do Meu Negócio"
-                    loading="lazy"
-                    onerror="this.style.display = 'none'"
-                  />
-                </div>
+                <div class="app-shot-soon">Em breve</div>
               </div>
               <p class="app-tagline">Gestão de produtos, pedidos e vendas.</p>
               <div class="app-actions">
                 <button class="btn-details" type="button" data-open="negocio">
                   Detalhes
                 </button>
-                <a
-                  class="btn-download"
-                  href="https://github.com/kvojps/meu-negocio-app/releases/download/v.1.0.8-beta/Meu.Negocio.Setup.1.0.8.exe"
+                <span
+                  class="btn-download btn-download--blocked"
+                  aria-disabled="true"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -654,18 +637,16 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   >
-                    <path d="M12 3v12" />
-                    <path d="M7 10l5 5 5-5" />
-                    <path d="M5 21h14" />
+                    <rect x="3" y="11" width="18" height="11" rx="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                   </svg>
-                  Baixar
-                </a>
+                  Bloqueado por enquanto
+                </span>
               </div>
             </article>
 
             <article class="app-card" data-category="financas">
               <div class="app-top">
-                <img class="app-icon" src="assets/icon-dinheiro.png" alt="" />
                 <div class="app-heading">
                   <h3>Meu Dinheiro</h3>
                 </div>
@@ -678,24 +659,16 @@
                 <div class="shot-frame-bar">
                   <span></span><span></span><span></span>
                 </div>
-                <div class="app-shot-wrap">
-                  <img
-                    class="app-shot"
-                    src="assets/screenshot-meu-dinheiro-app.png"
-                    alt="Captura de tela do Meu Dinheiro"
-                    loading="lazy"
-                    onerror="this.style.display = 'none'"
-                  />
-                </div>
+                <div class="app-shot-soon">Em breve</div>
               </div>
               <p class="app-tagline">Controle financeiro pessoal.</p>
               <div class="app-actions">
                 <button class="btn-details" type="button" data-open="dinheiro">
                   Detalhes
                 </button>
-                <a
-                  class="btn-download"
-                  href="https://github.com/kvojps/meu-dinheiro-app/releases/download/v1.2.0-beta/Meu.Dinheiro.Setup.1.2.0.exe"
+                <span
+                  class="btn-download btn-download--blocked"
+                  aria-disabled="true"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -705,79 +678,16 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   >
-                    <path d="M12 3v12" />
-                    <path d="M7 10l5 5 5-5" />
-                    <path d="M5 21h14" />
+                    <rect x="3" y="11" width="18" height="11" rx="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                   </svg>
-                  Baixar
-                </a>
-              </div>
-            </article>
-
-            <article class="app-card" data-category="produtividade">
-              <div class="app-top">
-                <img
-                  class="app-icon"
-                  src="assets/icon-aprendizado.png"
-                  alt=""
-                />
-                <div class="app-heading">
-                  <h3>Meu Aprendizado</h3>
-                </div>
-              </div>
-              <div class="app-chips">
-                <span class="chip chip-category">Produtividade</span>
-                <span class="chip chip-free">Grátis</span>
-              </div>
-              <div class="shot-frame">
-                <div class="shot-frame-bar">
-                  <span></span><span></span><span></span>
-                </div>
-                <div class="app-shot-wrap">
-                  <img
-                    class="app-shot"
-                    src="assets/screenshot-meu-aprendizado-app.png"
-                    alt="Captura de tela do Meu Aprendizado"
-                    loading="lazy"
-                    onerror="this.style.display = 'none'"
-                  />
-                </div>
-              </div>
-              <p class="app-tagline">
-                Organize aprendizados em árvores de tópicos.
-              </p>
-              <div class="app-actions">
-                <button
-                  class="btn-details"
-                  type="button"
-                  data-open="aprendizado"
-                >
-                  Detalhes
-                </button>
-                <a
-                  class="btn-download"
-                  href="https://github.com/kvojps/meu-aprendizado-app/releases/download/v1.0.1-beta/Meu.Aprendizado.Setup.1.0.1.exe"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M12 3v12" />
-                    <path d="M7 10l5 5 5-5" />
-                    <path d="M5 21h14" />
-                  </svg>
-                  Baixar
-                </a>
+                  Bloqueado por enquanto
+                </span>
               </div>
             </article>
 
             <article class="app-card" data-category="dev">
               <div class="app-top">
-                <img class="app-icon" src="assets/icon-dlog.png" alt="" />
                 <div class="app-heading">
                   <h3>Git Dlog</h3>
                 </div>
@@ -790,15 +700,7 @@
                 <div class="shot-frame-bar">
                   <span></span><span></span><span></span>
                 </div>
-                <div class="app-shot-wrap">
-                  <img
-                    class="app-shot"
-                    src="assets/screenshot-git-dlog-app.png"
-                    alt="Captura de tela do Git Dlog"
-                    loading="lazy"
-                    onerror="this.style.display = 'none'"
-                  />
-                </div>
+                <div class="app-shot-soon">Em breve</div>
               </div>
               <p class="app-tagline">
                 Status de HEAD e branches de vários repositórios git.
@@ -807,9 +709,9 @@
                 <button class="btn-details" type="button" data-open="dlog">
                   Detalhes
                 </button>
-                <a
-                  class="btn-download"
-                  href="https://github.com/kvojps/git-dlog/releases/download/v1.0.1-beta/Git.Dlog.Setup.1.0.1.exe"
+                <span
+                  class="btn-download btn-download--blocked"
+                  aria-disabled="true"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -819,12 +721,11 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   >
-                    <path d="M12 3v12" />
-                    <path d="M7 10l5 5 5-5" />
-                    <path d="M5 21h14" />
+                    <rect x="3" y="11" width="18" height="11" rx="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                   </svg>
-                  Baixar
-                </a>
+                  Bloqueado por enquanto
+                </span>
               </div>
             </article>
           </div>
@@ -953,7 +854,6 @@
     <!-- Detail templates -->
     <template id="tpl-dlog">
       <div class="modal-top">
-        <img class="modal-icon" src="assets/icon-dlog.png" alt="" />
         <div>
           <h3>Git Dlog</h3>
           <div class="app-chips">
@@ -963,15 +863,7 @@
           </div>
         </div>
       </div>
-      <div class="app-shot-wrap">
-        <img
-          class="app-shot"
-          src="assets/screenshot-git-dlog-app.png"
-          alt="Captura de tela do Git Dlog"
-          loading="lazy"
-          onerror="this.style.display = 'none'"
-        />
-      </div>
+      <div class="app-shot-soon app-shot-soon--modal">Em breve</div>
       <p class="modal-desc">
         App desktop para quem acompanha muitos repositórios git de uma vez, sem
         entrar pasta por pasta.
@@ -985,9 +877,9 @@
         <li>Diretórios de busca salvos entre sessões</li>
       </ul>
       <div class="modal-footer">
-        <a
-          class="btn-download"
-          href="https://github.com/kvojps/git-dlog/releases/download/v1.0.1-beta/Git.Dlog.Setup.1.0.1.exe"
+        <span
+          class="btn-download btn-download--blocked"
+          aria-disabled="true"
         >
           <svg
             viewBox="0 0 24 24"
@@ -997,71 +889,17 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <path d="M12 3v12" />
-            <path d="M7 10l5 5 5-5" />
-            <path d="M5 21h14" />
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
-          Baixar para Windows
-        </a>
-        <span class="app-meta">Windows 10 ou superior · Instalador .exe</span>
-      </div>
-    </template>
-
-    <template id="tpl-aprendizado">
-      <div class="modal-top">
-        <img class="modal-icon" src="assets/icon-aprendizado.png" alt="" />
-        <div>
-          <h3>Meu Aprendizado</h3>
-          <div class="app-chips">
-            <span class="chip chip-category">Produtividade</span>
-            <span class="chip chip-free">Grátis</span>
-            <span class="badge">v1.0.1-beta</span>
-          </div>
-        </div>
-      </div>
-      <div class="app-shot-wrap">
-        <img
-          class="app-shot"
-          src="assets/screenshot-meu-aprendizado-app.png"
-          alt="Captura de tela do Meu Aprendizado"
-          loading="lazy"
-          onerror="this.style.display = 'none'"
-        />
-      </div>
-      <p class="modal-desc">
-        App desktop para quem organiza o que estuda no estilo de um mapa mental.
-      </p>
-      <ul class="modal-features">
-        <li>Tópicos em árvore, num grafo arrastável</li>
-        <li>Status, anotações e subtópicos</li>
-        <li>Backup e restauração dos dados</li>
-      </ul>
-      <div class="modal-footer">
-        <a
-          class="btn-download"
-          href="https://github.com/kvojps/meu-aprendizado-app/releases/download/v1.0.1-beta/Meu.Aprendizado.Setup.1.0.1.exe"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M12 3v12" />
-            <path d="M7 10l5 5 5-5" />
-            <path d="M5 21h14" />
-          </svg>
-          Baixar para Windows
-        </a>
+          Bloqueado por enquanto
+        </span>
         <span class="app-meta">Windows 10 ou superior · Instalador .exe</span>
       </div>
     </template>
 
     <template id="tpl-dinheiro">
       <div class="modal-top">
-        <img class="modal-icon" src="assets/icon-dinheiro.png" alt="" />
         <div>
           <h3>Meu Dinheiro</h3>
           <div class="app-chips">
@@ -1071,15 +909,7 @@
           </div>
         </div>
       </div>
-      <div class="app-shot-wrap">
-        <img
-          class="app-shot"
-          src="assets/screenshot-meu-dinheiro-app.png"
-          alt="Captura de tela do Meu Dinheiro"
-          loading="lazy"
-          onerror="this.style.display = 'none'"
-        />
-      </div>
+      <div class="app-shot-soon app-shot-soon--modal">Em breve</div>
       <p class="modal-desc">
         App desktop de finanças pessoais para quem quer manter as contas do mês
         sob controle.
@@ -1092,9 +922,9 @@
         <li>Backup e restauração dos dados</li>
       </ul>
       <div class="modal-footer">
-        <a
-          class="btn-download"
-          href="https://github.com/kvojps/meu-dinheiro-app/releases/download/v1.2.0-beta/Meu.Dinheiro.Setup.1.2.0.exe"
+        <span
+          class="btn-download btn-download--blocked"
+          aria-disabled="true"
         >
           <svg
             viewBox="0 0 24 24"
@@ -1104,19 +934,17 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <path d="M12 3v12" />
-            <path d="M7 10l5 5 5-5" />
-            <path d="M5 21h14" />
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
-          Baixar para Windows
-        </a>
+          Bloqueado por enquanto
+        </span>
         <span class="app-meta">Windows 10 ou superior · Instalador .exe</span>
       </div>
     </template>
 
     <template id="tpl-negocio">
       <div class="modal-top">
-        <img class="modal-icon" src="assets/icon-negocio.png" alt="" />
         <div>
           <h3>Meu Negócio</h3>
           <div class="app-chips">
@@ -1126,15 +954,7 @@
           </div>
         </div>
       </div>
-      <div class="app-shot-wrap">
-        <img
-          class="app-shot"
-          src="assets/screenshot-meu-negocio-app.png"
-          alt="Captura de tela do Meu Negócio"
-          loading="lazy"
-          onerror="this.style.display = 'none'"
-        />
-      </div>
+      <div class="app-shot-soon app-shot-soon--modal">Em breve</div>
       <p class="modal-desc">
         App desktop de gestão para o dia a dia de um negócio pequeno.
       </p>
@@ -1145,9 +965,9 @@
         <li>Backup e restauração dos dados</li>
       </ul>
       <div class="modal-footer">
-        <a
-          class="btn-download"
-          href="https://github.com/kvojps/meu-negocio-app/releases/download/v.1.0.8-beta/Meu.Negocio.Setup.1.0.8.exe"
+        <span
+          class="btn-download btn-download--blocked"
+          aria-disabled="true"
         >
           <svg
             viewBox="0 0 24 24"
@@ -1157,12 +977,11 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <path d="M12 3v12" />
-            <path d="M7 10l5 5 5-5" />
-            <path d="M5 21h14" />
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
-          Baixar para Windows
-        </a>
+          Bloqueado por enquanto
+        </span>
         <span class="app-meta">Windows 10 ou superior · Instalador .exe</span>
       </div>
     </template>

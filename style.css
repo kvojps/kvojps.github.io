@@ -1277,15 +1277,6 @@ main > section:first-child {
   margin-bottom: 12px;
 }
 
-.app-icon,
-.modal-icon {
-  display: block;
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-sm);
-  flex: none;
-}
-
 .app-heading {
   flex: 1 1 auto;
   min-width: 0;
@@ -1423,6 +1414,34 @@ main > section:first-child {
 .btn-download svg {
   width: 16px;
   height: 16px;
+}
+
+/* Download indisponível por ora: aparência de botão inerte, sem hover. O
+   seletor duplo vence .modal-footer .btn-download (mesmo peso, vem depois). */
+.btn-download.btn-download--blocked,
+.btn-download.btn-download--blocked:hover {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Placeholder no lugar do screenshot enquanto as prévias não entram. */
+.app-shot-soon {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-alt);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.app-shot-soon--modal {
+  margin: 20px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
 }
 
 .app-meta {
