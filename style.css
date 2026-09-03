@@ -766,9 +766,22 @@ main > section:first-child {
   scroll-snap-align: start;
 }
 
+/* A esteira de cases vale só no desktop. Ela resolve escassez de espaço
+   horizontal, e no celular esse não é o problema: o card vira coluna única e
+   passa de 600px de altura, alto demais para viver dentro de uma faixa que
+   rola para o lado com encaixe obrigatório. Regra geral: esteira serve card
+   curto (os apps continuam nela), card alto empilha. Ver ADR 0001.
+   O JS não precisa saber: sem transbordo, setupOverflowNav esconde os
+   controles sozinho, e ele já reage a resize. */
 @media (max-width: 800px) {
+  .esteira--cases {
+    flex-direction: column;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
   .esteira--cases > .case-card {
-    flex-basis: 88%;
+    flex: 0 0 auto;
   }
 }
 
@@ -1086,6 +1099,15 @@ main > section:first-child {
 }
 
 @media (max-width: 560px) {
+  /* A 360px o cabeçalho fecha em 357px: 48 de padding + 34 do monograma + 10
+     de gap + 107 do nome + 12 + 98 do CTA curto + 12 + 36 do hambúrguer. Abaixo
+     disso o nome quebra em duas linhas e o total cai para 318px, ainda dentro
+     de 320. A assinatura continua sendo monograma travado ao nome — encolher
+     é ajuste de medida, esconder o nome seria mudar a marca. */
+  .brand-name {
+    font-size: 13px;
+  }
+
   .timeline-item {
     flex-direction: column;
     align-items: flex-start;
@@ -1356,6 +1378,19 @@ main > section:first-child {
 
 .case-body .app-actions {
   justify-content: flex-start;
+}
+
+/* No card de app a linha de ação é o ponto mais apertado da página: a 360px
+   sobram 235px de conteúdo, e "Detalhes" mais o botão de baixar pedem 230px.
+   A quebra de linha é o degrau de 320px, onde faltariam 30px — os dois botões
+   passam a ocupar duas linhas sozinhos, sem breakpoint. Por isso aqui o botão
+   de baixar abre mão do `flex: none` que ele tem em toda parte. */
+.app-card .app-actions {
+  flex-wrap: wrap;
+}
+
+.app-card .btn-download {
+  flex: 0 1 auto;
 }
 
 .btn-details {
@@ -1732,14 +1767,11 @@ footer a {
     width: 100%;
   }
 
+  /* Era o último resto de centralização do template de origem, já anotado no
+     ADR 0001 como dívida contra "alinhamento à esquerda sempre". */
   .contact-secondary {
-    justify-content: center;
     gap: 24px;
     padding-top: 8px;
-  }
-
-  .contact-mail {
-    text-align: center;
   }
 
   .cta-inline {
@@ -1752,6 +1784,25 @@ footer a {
 
   .filter-btn {
     padding: 9px 16px;
+  }
+
+  /* Alvo de toque: 36px é mira de mouse. A espiada do próximo card é de só
+     25px a 360px — sinal fraco demais para dispensar os controles e confiar
+     no swipe. */
+  .filter-nav,
+  .esteira-nav {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* O clamp existia para igualar alturas numa grade. Na esteira os cards já
+     saem da mesma altura por align-items: stretch, então ele só cortava texto
+     — e corta mais justamente onde a linha cabe menos. */
+  .app-tagline {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: none;
+    min-height: 0;
   }
 
   .modal-overlay {
@@ -1773,6 +1824,12 @@ footer a {
   .modal-close {
     width: 40px;
     height: 40px;
+  }
+
+  /* Acompanha o botão maior: 40px de largura a 16px da borda ocupam 56px, e a
+     reserva padrão de 32px deixava os chips passarem por baixo dele. */
+  .modal-top {
+    padding-right: 56px;
   }
 
   .modal-features {
