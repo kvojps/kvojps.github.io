@@ -910,7 +910,10 @@ main > section:first-child {
   display: none;
 }
 
-.filter-nav {
+/* Controles de transbordo, compartilhados pelo carrossel dos filtros e pela
+   esteira de apps: quadrado de 36 px, fio de contorno, sem sombra. */
+.filter-nav,
+.esteira-nav {
   flex: none;
   width: 36px;
   height: 36px;
@@ -928,12 +931,14 @@ main > section:first-child {
     opacity 0.15s ease;
 }
 
-.filter-nav:hover {
+.filter-nav:hover,
+.esteira-nav:hover {
   border-color: var(--signal);
   color: var(--signal);
 }
 
-.filter-nav:disabled {
+.filter-nav:disabled,
+.esteira-nav:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
@@ -942,7 +947,8 @@ main > section:first-child {
   display: none;
 }
 
-.filter-nav svg {
+.filter-nav svg,
+.esteira-nav svg {
   width: 16px;
   height: 16px;
 }
@@ -1170,64 +1176,61 @@ main > section:first-child {
   padding-top: 4px;
 }
 
-/* App cards */
-.apps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+/* Esteira de aplicativos: os quatro cards numa faixa que se navega para o
+   lado, com encaixe de rolagem. Distinta do "carrossel" que rola os botões
+   de filtro logo acima. Desktop mostra ~2,5 cards; mobile ~1,15 (espia o
+   próximo). */
+.esteira {
+  display: flex;
   gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-@media (max-width: 1040px) {
-  .apps-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-  }
-}
-
-/* No celular a lista de apps é longa demais: mostra 2 e revela o resto
-   sob demanda. Acima de 560px cabem 2 por linha, então não colapsa. */
-.apps-more {
+.esteira::-webkit-scrollbar {
   display: none;
 }
 
+.esteira > .app-card {
+  flex: 0 0 calc((100% - 2 * 16px) / 2.5);
+  scroll-snap-align: start;
+}
+
+@media (max-width: 1040px) {
+  .esteira > .app-card {
+    flex-basis: calc((100% - 16px) / 1.8);
+  }
+}
+
 @media (max-width: 560px) {
-  .apps-grid {
-    grid-template-columns: 1fr;
+  .esteira > .app-card {
+    flex-basis: 87%;
   }
+}
 
-  .apps-grid.is-collapsed > .app-card:nth-child(n + 3) {
-    display: none;
+/* Rolagem suave só sob preferência de movimento não-reduzido. O JS espelha
+   isto ao escolher behavior "auto"/"smooth" nos controles. */
+@media (prefers-reduced-motion: no-preference) {
+  .esteira {
+    scroll-behavior: smooth;
   }
+}
 
-  .apps-more {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 16px;
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-family: inherit;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 12px 18px;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-  }
+/* Controles anterior/próximo da esteira: mesmo tratamento de Fio que o
+   carrossel dos filtros (.filter-nav) — contorno de 1 px em divisor, raio
+   zero, sem sombra, hover transitório ao sinal (fora do orçamento). O bloco
+   compartilhado vive na seção "Filter bar". */
+.esteira-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 0 0 16px;
+}
 
-  .apps-more:hover {
-    border-color: var(--signal);
-    color: var(--signal);
-  }
-
-  .apps-more:active {
-    transform: scale(0.98);
-  }
-
-  .apps-more[hidden] {
-    display: none;
-  }
+.esteira-controls[hidden] {
+  display: none;
 }
 
 .app-card {
@@ -1612,17 +1615,14 @@ body.modal-open {
   transform: translateY(0);
 }
 
-.apps-grid > .app-card:nth-child(2),
 .services-grid > .service-card:nth-child(2) {
   transition-delay: 0.06s;
 }
 
-.apps-grid > .app-card:nth-child(3),
 .services-grid > .service-card:nth-child(3) {
   transition-delay: 0.12s;
 }
 
-.apps-grid > .app-card:nth-child(4),
 .services-grid > .service-card:nth-child(4) {
   transition-delay: 0.18s;
 }
@@ -1644,6 +1644,7 @@ body.modal-open {
 .btn-details:active,
 .filter-btn:active,
 .filter-nav:active,
+.esteira-nav:active,
 .modal-close:active,
 .nav-toggle:active {
   transform: scale(0.96);

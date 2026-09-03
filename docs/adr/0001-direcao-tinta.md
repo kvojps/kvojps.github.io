@@ -43,3 +43,15 @@ O manual diz "um só elemento vermelho por peça", e "peça" ali é um post do I
 para uma página que rola — uma peça é uma seção, um acento por seção — é interpretação desta
 adaptação, não regra do manual.** Fica registrada aqui para ser contestável em vez de implícita. A
 tabela que fixa qual é o acento de cada seção acompanha o trabalho de adaptação, não este registro.
+
+## Padrões de interação nomeados
+
+Este ADR trata de efeito estático — sombra, degradê, brilho, raio. Movimento não é regra de marca
+aqui. Ainda assim, um padrão de navegação ganha nome próprio para a próxima pessoa não reinventar
+outro:
+
+- **Esteira** (esforço `enxugar-conteudo`, ticket 04): faixa horizontal de cards com encaixe de
+  rolagem, usada na seção de aplicativos no lugar de uma grade com botão de expandir. Nome distinto
+  do **carrossel**, que neste repo é só o transbordo dos botões de filtro. A rolagem suave da
+  esteira respeita a preferência de movimento reduzido. Quando "Trabalhos" passar de dois cases,
+  adota a mesma esteira.
