@@ -757,9 +757,19 @@ main > section:first-child {
 }
 
 /* Client cases */
-.cases {
-  display: grid;
-  gap: 24px;
+/* A faixa é a .esteira base (flex, overflow-x, scroll-snap, gap 16px, scrollbar
+   oculta, scroll suave sob movimento não-reduzido — ver "Esteira de aplicativos"
+   mais abaixo). Aqui só a largura do card: um case largo por vez, espiando o
+   próximo. */
+.esteira--cases > .case-card {
+  flex: 0 0 92%;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 800px) {
+  .esteira--cases > .case-card {
+    flex-basis: 88%;
+  }
 }
 
 .case-card {

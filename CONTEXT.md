@@ -51,8 +51,9 @@ _Avoid_: borda, régua, divisória, separador
 
 **Esteira**:
 A faixa horizontal de cards que se percorre para o lado, um card encaixando por vez — o padrão para
-uma coleção que não cabe empilhada. Distinta do carrossel, que neste site é só o transbordo dos
-botões de filtro: a esteira move conteúdo, o carrossel move controles.
+uma coleção que não cabe empilhada. Usada nas seções de aplicativos e de trabalhos. Distinta do
+carrossel, que neste site é só o transbordo dos botões de filtro: a esteira move conteúdo, o
+carrossel move controles.
 _Avoid_: carrossel, slider, grade, galeria
 
 ### Uso do vermelho

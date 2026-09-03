@@ -53,5 +53,6 @@ outro:
 - **Esteira** (esforço `enxugar-conteudo`, ticket 04): faixa horizontal de cards com encaixe de
   rolagem, usada na seção de aplicativos no lugar de uma grade com botão de expandir. Nome distinto
   do **carrossel**, que neste repo é só o transbordo dos botões de filtro. A rolagem suave da
-  esteira respeita a preferência de movimento reduzido. Quando "Trabalhos" passar de dois cases,
-  adota a mesma esteira.
+  esteira respeita a preferência de movimento reduzido. A seção "Trabalhos" também adota a esteira
+  (esforço `esteira-trabalhos`), um case largo por vez — antecipada ainda com dois cases, para a
+  seção parar de crescer empilhada.

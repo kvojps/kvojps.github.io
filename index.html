@@ -302,7 +302,50 @@
           <p class="section-eyebrow">Trabalhos</p>
           <h2 class="section-title">Projetos entregues para clientes</h2>
 
-          <div class="cases">
+          <div class="esteira-controls" id="works-esteira-controls" hidden>
+            <button
+              class="esteira-nav esteira-nav--prev"
+              id="works-esteira-prev"
+              type="button"
+              aria-label="Trabalhos anteriores"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <button
+              class="esteira-nav esteira-nav--next"
+              id="works-esteira-next"
+              type="button"
+              aria-label="Próximos trabalhos"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            class="esteira esteira--cases"
+            id="works-esteira"
+            role="group"
+            aria-label="Esteira de trabalhos"
+            tabindex="0"
+          >
             <article class="case-card">
               <div class="case-media">
                 <div class="shot-frame">
@@ -432,11 +475,9 @@
 
           <!--
             PRÓXIMO PASSO: duplique um bloco <article class="case-card"> acima
-            para cada novo projeto. O lado da imagem alterna sozinho (CSS
-            nth-child), então é só colar na sequência.
-            A partir do terceiro case, pare de empilhar: adote a mesma esteira
-            da seção de aplicativos (.esteira + .esteira-controls), para a
-            seção não crescer sem fim.
+            para cada novo projeto. Ele é filho direto da .esteira, que já
+            cuida da rolagem para o lado e dos controles; o lado da imagem
+            alterna sozinho (CSS nth-child), então é só colar na sequência.
             O formato "O desafio / O que foi feito" é o que mais convence quem
             está avaliando contratar. Quando conseguir um número com o cliente
             (mais contatos, menos tempo gasto, mais vendas), acrescente um
@@ -1246,6 +1287,28 @@
         smooth: () => !reduceMotion.matches,
       });
 
+      // Esteira de trabalhos: mesmo padrão da de apps, um case por passo. Sem
+      // filtro de categoria aqui, então nada além do setupOverflowNav.
+      const worksEsteira = document.getElementById("works-esteira");
+      const worksControls = document.getElementById("works-esteira-controls");
+      if (worksEsteira) {
+        setupOverflowNav({
+          scroller: worksEsteira,
+          prev: document.getElementById("works-esteira-prev"),
+          next: document.getElementById("works-esteira-next"),
+          step: () => {
+            const shown = [...worksEsteira.querySelectorAll(".case-card")].find(
+              (card) => card.offsetWidth > 0,
+            );
+            return shown ? shown.offsetWidth + 16 : worksEsteira.clientWidth;
+          },
+          toggle: (on) => {
+            worksControls.hidden = !on;
+          },
+          smooth: () => !reduceMotion.matches,
+        });
+      }
+
       const filterButtons = document.querySelectorAll(".filter-btn");
       const cards = document.querySelectorAll("#apps .app-card");
       filterButtons.forEach((btn) => {
@@ -1299,10 +1362,11 @@
         if (e.key === "Escape" && !overlay.hidden) closeModal();
       });
 
-      // .app-card fica fora: na esteira os cards nascem fora do viewport na
-      // horizontal e o observer nunca os revelaria — ficariam em opacity 0.
+      // .app-card e .case-card ficam fora: nas esteiras os cards nascem fora do
+      // viewport na horizontal e o observer nunca os revelaria — ficariam em
+      // opacity 0. A <section> de cada um continua no seletor via main > section.
       const revealEls = document.querySelectorAll(
-        "main > section, .service-card, .case-card",
+        "main > section, .service-card",
       );
       if ("IntersectionObserver" in window) {
         const revealObserver = new IntersectionObserver(
