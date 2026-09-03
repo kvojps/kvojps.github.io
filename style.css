@@ -4,10 +4,9 @@
   color-scheme: light;
 
   /* Fonte única: Archivo em três pesos — 400 corpo, 600 intermediário,
-     900 título/rótulo. --font-display não é mais uma segunda família: é a
-     mesma pilha, mantida como seam para o papel de título até o ticket 07. */
+     900 título/rótulo. Uma pilha só: o papel de título é peso, não família,
+     então não há token de display à parte. */
   --font-body: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-  --font-display: var(--font-body);
 
   /* Título de cartaz: aperto de −3,5% e entrelinha curta. Ponto único de
      controle da escala de títulos. */
@@ -19,10 +18,9 @@
      derivadas. Este é o ponto único de definição: recolorir a página
      inteira é editar este bloco.
 
-     Os nomes --brand* são legados e mentem sobre o que carregam: --brand
-     carrega o sinal vermelho. Dívida deliberada, paga no ticket 07. O par
-     --accent/--accent-tint (o antigo verde semântico) foi retirado junto
-     com o verde neste ticket — não sobrou uso para renomear. */
+     Cada nome diz a cor ou o papel que carrega: --signal é o vermelho da
+     ação, --bg/--bg-alt/--surface são papel, --text/--text-muted são tinta
+     e cinza, --border é o divisor. Sem aliases. */
 
   /* papel — rampa neutra clara */
   --bg: #f5f2ec;
@@ -37,12 +35,8 @@
   --border: #d8d3c9;
 
   /* sinal — o vermelho da ação, e o degrau escuro da sua rampa */
-  --brand: #d6291e;
-  --brand-dark: #a81f16;
-
-  /* campo de apoio: papel, não sinal. O vermelho aparece em traço e em
-     botão; um campo vermelho inteiro gasta o acento da seção. */
-  --brand-tint: #ede9e1;
+  --signal: #d6291e;
+  --signal-dark: #a81f16;
 
   /* texto e preenchimento sobre campo de sinal */
   --on-signal: #fbf9f5;
@@ -148,7 +142,7 @@ body {
 }
 
 .brand-name {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: 15px;
   text-transform: uppercase;
@@ -200,7 +194,7 @@ body {
 .hero-shot:hover .shot-frame,
 .hero-shot:focus-within .shot-frame,
 .hero-shot:active .shot-frame {
-  border-color: var(--brand);
+  border-color: var(--signal);
 }
 
 .hero-visual .shot-frame {
@@ -269,7 +263,7 @@ body {
 }
 
 .hero h1 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: clamp(32px, 3.6vw, 46px);
   line-height: var(--leading-tight);
@@ -365,7 +359,7 @@ body {
 }
 
 .proof-logos li {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: 20px;
   letter-spacing: var(--tracking-tight);
@@ -391,7 +385,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--brand);
+  background: var(--signal);
   color: var(--on-signal);
   text-decoration: none;
   font-weight: 600;
@@ -402,7 +396,7 @@ body {
 }
 
 .btn-primary:hover {
-  background: var(--brand-dark);
+  background: var(--signal-dark);
 }
 
 .btn-ghost {
@@ -423,8 +417,8 @@ body {
 }
 
 .btn-ghost:hover {
-  border-color: var(--brand);
-  color: var(--brand);
+  border-color: var(--signal);
+  color: var(--signal);
 }
 
 /* Nav */
@@ -443,19 +437,19 @@ body {
 }
 
 .hero-nav a:hover {
-  color: var(--brand);
+  color: var(--signal);
 }
 
 .hero-nav .nav-cta {
   color: var(--on-signal);
-  background: var(--brand);
+  background: var(--signal);
   padding: 9px 16px;
   border-radius: var(--radius-sm);
   transition: background 0.15s ease;
 }
 
 .hero-nav .nav-cta:hover {
-  background: var(--brand-dark);
+  background: var(--signal-dark);
   color: var(--on-signal);
 }
 
@@ -517,7 +511,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-left: auto;
-    background: var(--brand);
+    background: var(--signal);
     color: var(--on-signal);
     text-decoration: none;
     font-weight: 600;
@@ -614,7 +608,7 @@ main > section:first-child {
 }
 
 .section-title {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(26px, 3vw, 36px);
   font-weight: 900;
   letter-spacing: var(--tracking-tight);
@@ -654,11 +648,11 @@ main > section:first-child {
    ao sinal, sem transição (a classe .reveal, sempre presente no card,
    governa o transition e não abriria espaço para animá-los). */
 .service-card:hover {
-  border-color: var(--brand);
+  border-color: var(--signal);
 }
 
 .service-card:hover h3 {
-  color: var(--brand);
+  color: var(--signal);
 }
 
 .service-icon {
@@ -668,7 +662,7 @@ main > section:first-child {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-sm);
-  background: var(--brand-tint);
+  background: var(--bg-alt);
   color: var(--text);
   margin-bottom: 16px;
 }
@@ -679,7 +673,7 @@ main > section:first-child {
 }
 
 .service-card h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: 18px;
   line-height: var(--leading-tight);
@@ -729,7 +723,7 @@ main > section:first-child {
 }
 
 .process-title {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 18px;
   font-weight: 900;
   letter-spacing: var(--tracking-tight);
@@ -763,9 +757,9 @@ main > section:first-child {
   height: 30px;
   flex: none;
   border-radius: var(--radius-sm);
-  background: var(--brand);
+  background: var(--signal);
   color: var(--on-signal);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 14px;
   font-weight: 900;
   letter-spacing: var(--tracking-tight);
@@ -801,11 +795,11 @@ main > section:first-child {
 }
 
 .case-card:hover {
-  border-color: var(--brand);
+  border-color: var(--signal);
 }
 
 .case-card:hover h3 {
-  color: var(--brand);
+  color: var(--signal);
 }
 
 .case-media .shot-frame {
@@ -813,7 +807,7 @@ main > section:first-child {
 }
 
 .case-body h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: 22px;
   line-height: var(--leading-tight);
@@ -935,8 +929,8 @@ main > section:first-child {
 }
 
 .filter-nav:hover {
-  border-color: var(--brand);
-  color: var(--brand);
+  border-color: var(--signal);
+  color: var(--signal);
 }
 
 .filter-nav:disabled {
@@ -972,13 +966,13 @@ main > section:first-child {
 }
 
 .filter-btn:hover {
-  border-color: var(--brand);
-  color: var(--brand);
+  border-color: var(--signal);
+  color: var(--signal);
 }
 
 .filter-btn.active {
-  background: var(--brand);
-  border-color: var(--brand);
+  background: var(--signal);
+  border-color: var(--signal);
   color: var(--on-signal);
 }
 
@@ -1022,11 +1016,11 @@ main > section:first-child {
 }
 
 .about-stats dt {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: 30px;
   letter-spacing: var(--tracking-tight);
-  color: var(--brand);
+  color: var(--signal);
   line-height: var(--leading-tight);
 }
 
@@ -1170,7 +1164,7 @@ main > section:first-child {
 }
 
 .contact-text h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(24px, 3vw, 32px);
   font-weight: 900;
   line-height: var(--leading-tight);
@@ -1259,8 +1253,8 @@ main > section:first-child {
   }
 
   .apps-more:hover {
-    border-color: var(--brand);
-    color: var(--brand);
+    border-color: var(--signal);
+    color: var(--signal);
   }
 
   .apps-more:active {
@@ -1282,11 +1276,11 @@ main > section:first-child {
 }
 
 .app-card:hover {
-  border-color: var(--brand);
+  border-color: var(--signal);
 }
 
 .app-card:hover h3 {
-  color: var(--brand);
+  color: var(--signal);
 }
 
 .shot-frame {
@@ -1342,7 +1336,7 @@ main > section:first-child {
 }
 
 .app-card h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: 17px;
   line-height: var(--leading-tight);
@@ -1437,8 +1431,8 @@ main > section:first-child {
 }
 
 .btn-details:hover {
-  border-color: var(--brand);
-  color: var(--brand);
+  border-color: var(--signal);
+  color: var(--signal);
 }
 
 /* Fora do modal, o botão de baixar/visitar não gasta o acento da seção
@@ -1466,8 +1460,8 @@ main > section:first-child {
 }
 
 .btn-download:hover {
-  background: var(--brand);
-  border-color: var(--brand);
+  background: var(--signal);
+  border-color: var(--signal);
 }
 
 .btn-download svg {
@@ -1531,7 +1525,7 @@ body.modal-open {
 
 .modal-close:hover {
   color: var(--text);
-  border-color: var(--brand);
+  border-color: var(--signal);
 }
 
 .modal-close svg {
@@ -1547,7 +1541,7 @@ body.modal-open {
 }
 
 .modal-top h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: 24px;
   line-height: var(--leading-tight);
@@ -1651,13 +1645,13 @@ body.modal-open {
 
 /* No modal, o botão de download é o acento vermelho da peça. */
 .modal-footer .btn-download {
-  background: var(--brand);
-  border-color: var(--brand);
+  background: var(--signal);
+  border-color: var(--signal);
 }
 
 .modal-footer .btn-download:hover {
-  background: var(--brand-dark);
-  border-color: var(--brand-dark);
+  background: var(--signal-dark);
+  border-color: var(--signal-dark);
 }
 
 /* Scroll reveal */
